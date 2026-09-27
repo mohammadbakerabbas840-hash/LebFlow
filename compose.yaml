@@ -1,0 +1,111 @@
+name: lebflow
+x-app: &app
+  build:
+    context: .
+    target: app
+  env_file: deploy/.env
+  environment:
+    APP_ENV: production
+    APP_DEBUG: 'false'
+    APP_KEY: ${APP_KEY:?Set APP_KEY in deploy/.env}
+    DB_CONNECTION: pgsql
+    DB_HOST: database
+    DB_PORT: 5432
+    DB_DATABASE: lebflow
+    DB_USERNAME: lebflow
+    DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+    CACHE_STORE: redis
+    SESSION_DRIVER: redis
+    SESSION_SECURE_COOKIE: 'true'
+    QUEUE_CONNECTION: redis
+    REDIS_QUEUE_RETRY_AFTER: 360
+    REDIS_HOST: redis
+    REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD}
+    QDRANT_URL: http://qdrant:6333
+    QDRANT_API_KEY: ${QDRANT_API_KEY:?Set QDRANT_API_KEY}
+    RAG_VECTOR_ENABLED: 'true'
+    IDENTITY_STORAGE_PATH: /var/www/html/storage/app/identity-private
+  volumes:
+    - private-storage:/var/www/html/storage
+    - virus-signatures:/var/lib/clamav:ro
+  restart: unless-stopped
+  security_opt: ['no-new-privileges:true']
+  depends_on:
+    database: {condition: service_healthy}
+    redis: {condition: service_healthy}
+services:
+  app:
+    <<: *app
+    mem_limit: 768m
+    cpus: 2
+  worker:
+    <<: *app
+    user: www-data
+    command: ['php', 'artisan', 'queue:work', '--queue=documents,default', '--timeout=65', '--tries=2', '--max-jobs=100', '--sleep=3']
+    mem_limit: 3g
+    cpus: 1
+  knowledge-worker:
+    <<: *app
+    user: www-data
+    command: ['php', 'artisan', 'queue:work', '--queue=knowledge', '--timeout=300', '--tries=3', '--max-jobs=50', '--sleep=3']
+    mem_limit: 512m
+    cpus: 1
+  scheduler:
+    <<: *app
+    user: www-data
+    command: ['php', 'artisan', 'schedule:work']
+    mem_limit: 256m
+    cpus: 0.5
+  web:
+    build: {context: ., target: web}
+    ports: ['127.0.0.1:8080:8080']
+    depends_on: [app]
+    restart: unless-stopped
+    mem_limit: 128m
+    security_opt: ['no-new-privileges:true']
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: lebflow
+      POSTGRES_USER: lebflow
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+    volumes: ['database:/var/lib/postgresql/data']
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U lebflow']
+      interval: 10s
+      retries: 5
+    restart: unless-stopped
+    mem_limit: 1g
+  redis:
+    image: redis:7-alpine
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD}
+    command: ['/bin/sh', '-c', 'exec redis-server --appendonly yes --requirepass "$REDIS_PASSWORD" --maxmemory 256mb --maxmemory-policy noeviction']
+    volumes: ['redis:/data']
+    healthcheck:
+      test: ['CMD-SHELL', 'REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli ping | grep PONG']
+      interval: 10s
+      retries: 5
+    restart: unless-stopped
+    mem_limit: 384m
+  qdrant:
+    image: qdrant/qdrant:v1.19.1
+    environment:
+      QDRANT__SERVICE__API_KEY: ${QDRANT_API_KEY:?Set QDRANT_API_KEY}
+      QDRANT__TELEMETRY_DISABLED: 'true'
+    volumes: ['vectors:/qdrant/storage']
+    restart: unless-stopped
+    mem_limit: 768m
+  signatures:
+    image: clamav/clamav:stable
+    entrypoint: ['/bin/sh', '-c']
+    command: ['chown clamav:clamav /var/lib/clamav && exec freshclam --daemon --foreground=true']
+    volumes: ['virus-signatures:/var/lib/clamav']
+    restart: unless-stopped
+    mem_limit: 256m
+volumes:
+  database:
+  redis:
+  vectors:
+  private-storage:
+  virus-signatures:

@@ -1,0 +1,77 @@
+import { test, expect } from '@playwright/test';
+
+test('real registration, private documents, case persistence, preferences and logout', async ({page})=>{
+  const email=`browser-${Date.now()}@example.com`;
+  await page.goto('/#/account');
+  await page.locator('main').getByRole('button',{name:'Create account',exact:true}).click();
+  for (const [name,value] of Object.entries({name:'Sample Resident',nameArabic:'مقيم تجريبي',email,dob:'1995-05-12',idNumber:'SAMPLE-98765',password:'sample-password-123',confirmPassword:'sample-password-123'})) {
+    await page.locator(`input[name="${name}"]`).fill(value);
+  }
+  const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jZtQAAAAASUVORK5CYII=','base64');
+  for (const kind of ['idPhoto','extract']) await page.locator(`#file-${kind}`).setInputFiles({name:'sample.png',mimeType:'image/png',buffer:kind==='extract' ? Buffer.concat([png,Buffer.alloc(2*1024*1024)]) : png});
+  await page.locator('.consent-label input').check();
+  const registered=page.waitForResponse(r=>r.url().endsWith('/auth/register'));
+  await page.locator('button[type=submit]').click();
+  expect((await registered).status()).toBe(201);
+  await expect(page.getByRole('heading',{name:'Sample Resident',exact:true})).toBeVisible();
+  const me=await (await page.request.get('/api/v1/me')).json();
+  expect(me.data.idNumber).toBeUndefined(); expect(me.data.documents).toHaveLength(2);
+  const identity=me.data.documents.find((d:{kind:string})=>d.kind==='idPhoto');
+  expect(me.data.documents.find((d:{kind:string})=>d.kind==='extract').size).toBe(png.length+2*1024*1024);
+  const document=await page.request.get(`/api/v1/identity-documents/${identity.id}`);
+  expect(document.status()).toBe(423); expect(me.data.documents.every((d:{downloadAvailable:boolean})=>!d.downloadAvailable)).toBe(true);
+  expect((await page.context().cookies()).some(c=>c.httpOnly&&c.name.endsWith('-session'))).toBe(true);
+  await page.goto('/#/services/police');
+  await page.getByRole('button',{name:'Create personal request',exact:true}).click();
+  await expect(page.locator('main')).toHaveAttribute('aria-busy','false');
+  await page.reload();
+  await expect(page.getByRole('button',{name:'Create personal request',exact:true})).toHaveCount(0);
+  const cases=await (await page.request.get('/api/v1/cases')).json();
+  expect(cases.data).toHaveLength(1); expect(cases.data[0].serviceId).toBe('police');
+  await page.getByRole('button',{name:'Try a demo appointment',exact:true}).click();
+  const demo=page.locator('.demo-booking');
+  await demo.getByLabel('Demo branch').selectOption('demo-north');
+  await demo.getByLabel('Date',{exact:true}).fill('2099-10-02');
+  await demo.getByLabel('Available demo time').selectOption('10:30');
+  await demo.getByRole('button',{name:'Review appointment'}).click();
+  await demo.getByRole('button',{name:'Confirm demo appointment'}).click();
+  await expect(demo).toContainText('Demo appointment saved');
+  await expect(demo).toContainText('DEMO-');
+  await page.reload();
+  await expect(demo).toContainText('DEMO-');
+  await demo.getByRole('button',{name:'Cancel demo appointment'}).click();
+  await demo.getByRole('button',{name:'Confirm cancellation'}).click();
+  await expect(demo).toContainText('Demo appointment cancelled');
+  expect((await (await page.request.get('/api/v1/cases')).json()).data[0].appointment).toBeNull();
+  await page.goto('/#/account');
+  await page.locator('.account-settings .preference-toggle input').first().uncheck();
+  await expect.poll(async()=> (await (await page.request.get('/api/v1/preferences')).json()).data.appointmentAlerts).toBe(false);
+  await page.reload();
+  await expect(page.locator('.account-settings .preference-toggle input').first()).not.toBeChecked();
+  const storage=await page.evaluate(()=>JSON.stringify(localStorage));
+  expect(storage).not.toContain('SAMPLE-98765'); expect(storage).not.toContain('lebflow-cases'); expect(storage).not.toContain(email);
+  await page.getByRole('button',{name:'Sign out',exact:true}).click();
+  expect((await page.request.get('/api/v1/me')).status()).toBe(401);
+  await page.locator('.login-form input[name=email]').fill(email);
+  await page.locator('.login-form input[name=password]').fill('sample-password-123');
+  await page.locator('form').getByRole('button',{name:'Sign in',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Sample Resident',exact:true})).toBeVisible();
+  expect((await (await page.request.get('/api/v1/cases')).json()).data).toHaveLength(1);
+  await page.locator('input[name=current_password]').fill('sample-password-123');
+  await page.getByLabel('New password',{exact:true}).fill('replacement-password-123');
+  await page.locator('input[name=password_confirmation]').fill('replacement-password-123');
+  const changed=page.waitForResponse(r=>r.url().endsWith('/me/password'));
+  await page.getByRole('button',{name:'Change password',exact:true}).click();
+  expect((await changed).status()).toBe(200);
+  await page.reload();
+  await expect(page.getByRole('heading',{name:'Sample Resident',exact:true})).toBeVisible();
+  await page.getByRole('combobox',{name:'Language',exact:true}).first().selectOption('ar');
+  await expect.poll(async()=> (await (await page.request.get('/api/v1/me')).json()).data.locale).toBe('ar');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+});
+
+test('guest API access and mutation without CSRF are rejected',async({request})=>{
+  expect((await request.get('/api/v1/cases')).status()).toBe(401);
+  expect((await request.post('/api/v1/auth/login',{data:{email:'nobody@example.com',password:'password'}})).status()).toBe(419);
+});

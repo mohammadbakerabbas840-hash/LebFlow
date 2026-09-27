@@ -1,0 +1,18 @@
+.release-panel { margin-block: 1.3rem; }
+.release-panel form, .admin-panel form { display: grid; gap: .8rem; margin-block: 1rem; }
+.release-panel input:not([type=checkbox]), .release-panel select, .admin-panel input:not([type=checkbox]), .admin-panel textarea { width: 100%; min-width: 0; padding: .7rem; border: 1px solid #cbd5e1; border-radius: .6rem; background: white; color: #12243b; font: inherit; }
+.release-panel fieldset, .admin-panel fieldset { min-width: 0; border: 1px solid #cbd5e1; border-radius: .65rem; }
+.release-panel button, .case-tools button, .admin-panel button { padding: .65rem .9rem; border-radius: .6rem; min-height: 44px; }
+.family-row { display: flex; gap: 1rem; justify-content: space-between; align-items: center; flex-wrap: wrap; border-block-end: 1px solid #e2e8f0; padding-block: .8rem; }
+.secret-key, .session-agent { white-space: pre-wrap; overflow-wrap: anywhere; }
+.secret-key { display: block; background: #f1f5f9; color: #132a49; padding: 1rem; }
+.revision-compare { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.admin-panel summary, .case-tools summary { cursor: pointer; padding-block: .8rem; }
+.case-tools .info-note { display: block; }
+.release-panel article { margin-block: 1rem; }
+@media(max-width: 700px) { .revision-compare { grid-template-columns: 1fr; } }
+@media print {
+  body { background: white !important; color: black !important; overflow: visible !important; }
+  .app-shell > .sidebar, .main-shell, .modal-backdrop button, .modal-backdrop .ai-assistant, .case-tools, .modal-backdrop .appointment-picker { display: none !important; }
+  .modal-backdrop, .modal { position: static !important; background: white !important; box-shadow: none !important; width: 100% !important; max-width: none !important; max-height: none !important; overflow: visible !important; }
+}

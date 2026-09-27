@@ -1,0 +1,1446 @@
+{
+  "services": {
+    "birth": {
+      "lastReviewedAt": "2026-09-27",
+      "category": {
+        "en": "Civil status",
+        "ar": "الأحوال الشخصية",
+        "fr": "État civil"
+      },
+      "location": {
+        "en": "The competent civil registry; confirm the office for your place of registration.",
+        "ar": "قلم النفوس المختص؛ تحقّق من المكتب المعني بمكان القيد.",
+        "fr": "Le registre civil compétent ; confirmez le bureau de votre lieu d’inscription."
+      },
+      "appointments": {
+        "en": "Contact the registry before visiting. LebFlow has no live government booking connection.",
+        "ar": "تواصل مع قلم النفوس قبل الزيارة. لا يرتبط LebFlow بنظام حجز حكومي مباشر.",
+        "fr": "Contactez le registre avant votre visite. LebFlow n’est pas relié à un système public de réservation."
+      },
+      "sourceNote": {
+        "en": "DGCS directs families to civil courts when registration is over one year late. The published ordinary processing estimate is 1–2 days; it is not a guarantee. Confirm your situation.",
+        "ar": "توجّه الأحوال الشخصية الأهل إلى القضاء المدني إذا تجاوزت الولادة سنة دون تسجيل. المدة المنشورة للمعاملة العادية يوم إلى يومين، وهي غير مضمونة. تحقّق من وضعك.",
+        "fr": "La DGCS renvoie les familles aux tribunaux civils après plus d’un an sans enregistrement. Le délai indicatif ordinaire publié est de 1 à 2 jours, sans garantie. Faites confirmer votre situation."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgcs.gov.lb/arabic/applicationmechanisms/mechanism4",
+          "title": {
+            "en": "DGCS — civil-registry procedures",
+            "ar": "الأحوال الشخصية — معاملات أقلام النفوس",
+            "fr": "DGCS — démarches auprès du registre civil"
+          }
+        }
+      ],
+      "evidence": "partial",
+      "title": {
+        "en": "Birth registration",
+        "ar": "تسجيل ولادة",
+        "fr": "Enregistrement d’une naissance"
+      },
+      "subtitle": {
+        "en": "Prepare a newborn’s civil registration",
+        "ar": "تحضير معاملة تسجيل مولود جديد",
+        "fr": "Préparer l’inscription d’un nouveau-né"
+      },
+      "scope": {
+        "en": "Birth registration in Lebanon; late or overseas registration needs separate guidance.",
+        "ar": "تسجيل الولادة في لبنان؛ يتطلّب التسجيل المتأخّر أو في الخارج إرشادات خاصة.",
+        "fr": "Enregistrement au Liban ; les naissances à l’étranger ou déclarations tardives nécessitent des instructions spécifiques."
+      },
+      "eligibility": [
+        {
+          "en": "Parents or legal representatives should confirm the child’s registration route.",
+          "ar": "على الوالدين أو الممثل القانوني تأكيد مسار تسجيل الطفل.",
+          "fr": "Les parents ou représentants légaux doivent confirmer la procédure applicable."
+        }
+      ],
+      "documents": [
+        {
+          "id": "birth-document",
+          "title": {
+            "en": "Completed and duly signed birth document",
+            "ar": "وثيقة ولادة منظّمة وموقّعة وفق الأصول",
+            "fr": "Document de naissance dûment établi et signé"
+          },
+          "note": {
+            "en": "Ask the registry which signatures and supporting records apply.",
+            "ar": "استفسر لدى قلم النفوس عن التواقيع والمستندات الداعمة اللازمة.",
+            "fr": "Demandez au registre les signatures et justificatifs nécessaires."
+          }
+        }
+      ],
+      "fees": {
+        "en": "The page lists LBP 400,000 within one month, an additional LBP 1,000,000 after one month, plus a mukhtar stamp. Confirm current applicability.",
+        "ar": "تذكر الصفحة ٤٠٠٬٠٠٠ ل.ل. خلال شهر، مع إضافة ١٬٠٠٠٬٠٠٠ ل.ل. بعد الشهر، وطابع المختار. أكّد انطباق الرسوم حاليًا.",
+        "fr": "La page indique 400 000 LBP dans le mois, puis 1 000 000 LBP supplémentaires au-delà, plus le timbre du mokhtar. Confirmez leur application actuelle."
+      }
+    },
+    "family": {
+      "lastReviewedAt": "2026-09-27",
+      "category": {
+        "en": "Civil status",
+        "ar": "الأحوال الشخصية",
+        "fr": "État civil"
+      },
+      "location": {
+        "en": "The competent civil registry; confirm the office for your place of registration.",
+        "ar": "قلم النفوس المختص؛ تحقّق من المكتب المعني بمكان القيد.",
+        "fr": "Le registre civil compétent ; confirmez le bureau de votre lieu d’inscription."
+      },
+      "appointments": {
+        "en": "Contact the registry before visiting. LebFlow has no live government booking connection.",
+        "ar": "تواصل مع قلم النفوس قبل الزيارة. لا يرتبط LebFlow بنظام حجز حكومي مباشر.",
+        "fr": "Contactez le registre avant votre visite. LebFlow n’est pas relié à un système public de réservation."
+      },
+      "sourceNote": {
+        "en": "Official page reviewed on 27 September 2026; it has no clear update date. Confirm the route, fees and timing before submission.",
+        "ar": "رُوجعت الصفحة الرسمية في ٢٧ أيلول ٢٠٢٦ ولا يظهر تاريخ تحديث واضح. أكّد الإجراءات والرسوم والمدة قبل التقديم.",
+        "fr": "Page officielle consultée le 27 septembre 2026, sans date de mise à jour explicite. Confirmez la procédure, les frais et les délais avant le dépôt."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgcs.gov.lb/arabic/applicationmechanisms/mechanism4",
+          "title": {
+            "en": "DGCS — civil-registry procedures",
+            "ar": "الأحوال الشخصية — معاملات أقلام النفوس",
+            "fr": "DGCS — démarches auprès du registre civil"
+          }
+        }
+      ],
+      "evidence": "partial",
+      "title": {
+        "en": "Family civil-status extract",
+        "ar": "إخراج قيد عائلي",
+        "fr": "Extrait familial d’état civil"
+      },
+      "subtitle": {
+        "en": "Request a family registry extract",
+        "ar": "طلب بيان قيد عائلي",
+        "fr": "Demander un extrait du registre familial"
+      },
+      "scope": {
+        "en": "Prepare a family extract request through the registry or an available LibanPost channel.",
+        "ar": "حضّر طلب إخراج قيد عائلي عبر قلم النفوس أو قناة ليبان بوست المتاحة.",
+        "fr": "Préparez une demande auprès du registre civil ou d’un guichet LibanPost disponible."
+      },
+      "eligibility": [
+        {
+          "en": "Confirm entitlement and representation with the receiving registry.",
+          "ar": "تحقّق من حق الحصول على البيان وشروط التمثيل لدى قلم النفوس.",
+          "fr": "Vérifiez votre droit à l’extrait et les règles de représentation auprès du registre."
+        }
+      ],
+      "documents": [
+        {
+          "id": "mukhtar-request",
+          "title": {
+            "en": "Mukhtar-certified extract request",
+            "ar": "طلب بيان قيد مصدّق من المختار",
+            "fr": "Demande d’extrait certifiée par le mokhtar"
+          },
+          "note": {
+            "en": "Registry route: mukhtar of the registration area. LibanPost route: residence or registration area; confirm availability.",
+            "ar": "عبر قلم النفوس: مختار مكان القيد. عبر ليبان بوست: مختار مكان السكن أو القيد؛ أكّد توفّر الخدمة.",
+            "fr": "Au registre : mokhtar du lieu d’inscription. Par LibanPost : lieu de résidence ou d’inscription ; confirmez la disponibilité."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Registry route: published stamps of LBP 100,000 on the request and LBP 400,000 on the extract, plus a mukhtar stamp. Confirm delivery charges separately.",
+        "ar": "عبر قلم النفوس: طابع منشور بقيمة ١٠٠٬٠٠٠ ل.ل. على الطلب و٤٠٠٬٠٠٠ ل.ل. على البيان، إضافةً إلى طابع المختار. أكّد رسوم التوصيل بشكل منفصل.",
+        "fr": "Au registre : timbres publiés de 100 000 LBP sur la demande et 400 000 LBP sur l’extrait, plus le timbre du mokhtar. Confirmez séparément les frais de livraison."
+      }
+    },
+    "marriage": {
+      "lastReviewedAt": "2026-09-27",
+      "category": {
+        "en": "Civil status",
+        "ar": "الأحوال الشخصية",
+        "fr": "État civil"
+      },
+      "location": {
+        "en": "The competent civil registry; confirm the office for your place of registration.",
+        "ar": "قلم النفوس المختص؛ تحقّق من المكتب المعني بمكان القيد.",
+        "fr": "Le registre civil compétent ; confirmez le bureau de votre lieu d’inscription."
+      },
+      "appointments": {
+        "en": "Contact the registry before visiting. LebFlow has no live government booking connection.",
+        "ar": "تواصل مع قلم النفوس قبل الزيارة. لا يرتبط LebFlow بنظام حجز حكومي مباشر.",
+        "fr": "Contactez le registre avant votre visite. LebFlow n’est pas relié à un système public de réservation."
+      },
+      "sourceNote": {
+        "en": "Official page reviewed on 27 September 2026; it has no clear update date. Confirm the route, fees and timing before submission.",
+        "ar": "رُوجعت الصفحة الرسمية في ٢٧ أيلول ٢٠٢٦ ولا يظهر تاريخ تحديث واضح. أكّد الإجراءات والرسوم والمدة قبل التقديم.",
+        "fr": "Page officielle consultée le 27 septembre 2026, sans date de mise à jour explicite. Confirmez la procédure, les frais et les délais avant le dépôt."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgcs.gov.lb/arabic/applicationmechanisms/mechanism4",
+          "title": {
+            "en": "DGCS — civil-registry procedures",
+            "ar": "الأحوال الشخصية — معاملات أقلام النفوس",
+            "fr": "DGCS — démarches auprès du registre civil"
+          }
+        }
+      ],
+      "evidence": "partial",
+      "title": {
+        "en": "Marriage certificate copy",
+        "ar": "نسخة عن وثيقة زواج",
+        "fr": "Copie d’un acte de mariage"
+      },
+      "subtitle": {
+        "en": "Obtain a copy of an already registered marriage",
+        "ar": "الحصول على نسخة عن زواج مسجّل",
+        "fr": "Obtenir une copie d’un mariage déjà enregistré"
+      },
+      "scope": {
+        "en": "A copy of a registered record. Registering a new marriage is a separate procedure.",
+        "ar": "نسخة عن وثيقة منفّذة في السجل. تسجيل زواج جديد معاملة مستقلة.",
+        "fr": "Copie d’un acte déjà inscrit au registre. L’enregistrement initial d’un mariage est une démarche distincte."
+      },
+      "eligibility": [
+        {
+          "en": "The applicant concerned requests the copy from the competent registry.",
+          "ar": "يطلب صاحب العلاقة النسخة من قلم النفوس المختص.",
+          "fr": "La personne concernée demande la copie au registre compétent."
+        }
+      ],
+      "documents": [
+        {
+          "id": "certified-request",
+          "title": {
+            "en": "Request certified by the registration-area mukhtar",
+            "ar": "طلب مصدّق من مختار منطقة القيد",
+            "fr": "Demande certifiée par le mokhtar du lieu d’inscription"
+          },
+          "note": {
+            "en": "Include the place and number of registration.",
+            "ar": "اذكر محل القيد ورقمه.",
+            "fr": "Indiquez le lieu et le numéro d’inscription."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee unverified: the official page shows legacy stamp amounts. Confirm before payment.",
+        "ar": "الرسوم الحالية غير مؤكّدة: تعرض الصفحة الرسمية قيمًا قديمة للطوابع. تحقّق قبل الدفع.",
+        "fr": "Frais actuels non vérifiés : la page affiche d’anciens montants de timbres. Confirmez avant paiement."
+      }
+    },
+    "passport": {
+      "lastReviewedAt": "2026-09-27",
+      "title": {
+        "en": "Passport application",
+        "ar": "طلب جواز سفر",
+        "fr": "Demande de passeport"
+      },
+      "subtitle": {
+        "en": "New passports & renewals",
+        "ar": "إصدار جواز سفر جديد أو تجديده",
+        "fr": "Première demande et renouvellement"
+      },
+      "category": {
+        "en": "Identity & travel",
+        "ar": "الهوية والسفر",
+        "fr": "Identité et voyage"
+      },
+      "scope": {
+        "en": "Lebanese biometric passport • applications in Lebanon",
+        "ar": "جواز سفر لبناني بيومتري • للطلبات المقدّمة داخل لبنان",
+        "fr": "Passeport biométrique libanais • demandes au Liban"
+      },
+      "eligibility": [
+        {
+          "en": "For Lebanese citizens. Identity requirements vary with ID age, photo likeness, and application type.",
+          "ar": "للمواطنين اللبنانيين. تختلف مستندات إثبات الهوية المطلوبة بحسب تاريخ إصدار البطاقة ومدى مطابقة الصورة لصاحبها ونوع الطلب.",
+          "fr": "Pour les citoyens libanais. Les justificatifs d’identité requis varient selon l’ancienneté de la carte, la ressemblance de la photo avec son titulaire et le type de demande."
+        },
+        {
+          "en": "Under 18: parental/guardian consent and a recent individual extract. Custody and overseas consent need additional checks.",
+          "ar": "لمن هم دون ١٨ سنة: موافقة الوالدين أو الوصي وإخراج قيد إفرادي حديث. تحقّق من الشروط الإضافية في حالات الحضانة أو صدور الموافقة من خارج لبنان.",
+          "fr": "Moins de 18 ans : consentement parental ou du tuteur et extrait récent. Garde et consentement à l’étranger à vérifier."
+        },
+        {
+          "en": "Bring A4 copies. Confirm photograph dimensions: official language versions contain differences.",
+          "ar": "أحضر نسخاً بحجم A4. تحقّق من أبعاد الصورة المطلوبة، إذ تختلف المعلومات بين النسخ اللغوية للموقع الرسمي.",
+          "fr": "Prévoyez des copies A4. Confirmez le format photo : les versions linguistiques officielles diffèrent."
+        }
+      ],
+      "documents": [
+        {
+          "id": "form",
+          "title": {
+            "en": "Passport application form",
+            "ar": "استمارة طلب جواز السفر",
+            "fr": "Formulaire de passeport"
+          },
+          "note": {
+            "en": "Approved A4 form; confirm the competent mukhtar.",
+            "ar": "الاستمارة المعتمدة بحجم A4؛ تحقّق من المختار المختص بمعاملتك.",
+            "fr": "Formulaire A4 agréé ; confirmez le moukhtar compétent."
+          }
+        },
+        {
+          "id": "identity",
+          "title": {
+            "en": "Lebanese ID and/or individual civil-status extract",
+            "ar": "بطاقة هوية لبنانية و/أو إخراج قيد إفرادي",
+            "fr": "Carte d’identité libanaise et/ou extrait individuel d’état civil"
+          },
+          "note": {
+            "en": "Some first applications need an extract under 3 months and an additional ID document; consult the official identity table.",
+            "ar": "تتطلّب بعض طلبات الإصدار للمرة الأولى إخراج قيد لم يمضِ على إصداره ٣ أشهر، ومستنداً إضافياً لإثبات الهوية. راجع الجدول الرسمي لمعرفة ما ينطبق على حالتك.",
+            "fr": "Certains premiers dossiers exigent un extrait de moins de 3 mois et un autre justificatif ; consultez le tableau officiel."
+          }
+        },
+        {
+          "id": "photo",
+          "title": {
+            "en": "Recent certified passport photograph",
+            "ar": "صورة شمسية حديثة ومصدّقة",
+            "fr": "Photo d’identité récente et certifiée"
+          },
+          "note": {
+            "en": "Full face, white background, required mukhtar certification. Confirm dimensions before printing.",
+            "ar": "صورة للوجه من الأمام بخلفية بيضاء، مع تصديق المختار المطلوب. تحقّق من الأبعاد قبل الطباعة.",
+            "fr": "Visage de face, fond blanc, certification du moukhtar. Confirmez les dimensions avant impression."
+          }
+        },
+        {
+          "id": "previous",
+          "title": {
+            "en": "Previous passport and copies",
+            "ar": "جواز السفر السابق ونسخ عنه",
+            "fr": "Ancien passeport et copies"
+          },
+          "note": {
+            "en": "Bring the previous passport if available; replacement requires the passport being replaced.",
+            "ar": "أحضر جواز السفر السابق إن وُجد. وعند طلب استبداله، أحضر الجواز الذي تريد استبداله.",
+            "fr": "Apportez l’ancien passeport si disponible ; pour le remplacement, le passeport concerné."
+          }
+        },
+        {
+          "id": "guardian",
+          "title": {
+            "en": "Parental consent / guardianship — minors only",
+            "ar": "موافقة الوالدين أو الوصاية — للقاصرين فقط",
+            "fr": "Consentement parental / tutelle — mineurs uniquement"
+          },
+          "note": {
+            "en": "Confirm signatories and certified authorizations. Adults may mark this item not applicable.",
+            "ar": "تحقّق ممّن يحق له التوقيع ومن التفويضات المصدّقة المطلوبة. إذا كنت راشداً، يمكنك تحديد أن هذا المستند لا ينطبق على حالتك.",
+            "fr": "Confirmez les signataires et autorisations certifiées. Pour les adultes, indiquez « sans objet »."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Published base fees: 5 years — LBP 6,000,000; 10 years — LBP 10,000,000. Urgent service costs extra. Confirm eligibility and total.",
+        "ar": "الرسوم الأساسية المنشورة: جواز صالح لـ٥ سنوات — ٦٬٠٠٠٬٠٠٠ ل.ل.؛ ولـ١٠ سنوات — ١٠٬٠٠٠٬٠٠٠ ل.ل. تُضاف رسوم للمعاملة المستعجلة. تحقّق من الشروط التي تنطبق عليك ومن المبلغ الإجمالي.",
+        "fr": "Tarifs de base publiés : 5 ans — 6 000 000 LBP ; 10 ans — 10 000 000 LBP. Un supplément s’applique au traitement urgent. Vérifiez les conditions d’éligibilité et le montant total."
+      },
+      "location": {
+        "en": "Competent General Security regional center, according to the official identity-document table.",
+        "ar": "مركز الأمن العام المختص وفق جدول مستندات الهوية الرسمي.",
+        "fr": "Centre régional compétent de la Sûreté générale, selon le tableau officiel d’identité."
+      },
+      "appointments": {
+        "en": "Published processing: standard 30 working days; urgent regional 7 working days; urgent Public Relations 48 hours. These are not appointment slots.",
+        "ar": "مدد إنجاز المعاملة المنشورة: ٣٠ يوم عمل للطلب العادي، و٧ أيام عمل للطلب المستعجل في المراكز الإقليمية، و٤٨ ساعة للطلب المستعجل لدى العلاقات العامة. هذه مدد معالجة الطلبات، وليست مواعيد متاحة للحجز.",
+        "fr": "Délais de traitement publiés : procédure ordinaire, 30 jours ouvrés ; procédure urgente en centre régional, 7 jours ouvrés ; procédure urgente auprès des Relations publiques, 48 heures. Ces délais n’indiquent pas les disponibilités de rendez-vous."
+      },
+      "renewal": {
+        "en": "Ordinary replacement is described for validity under 18 months. The identity table also permits a matching new-format extract under one year for the stated replacement route. Confirm your case.",
+        "ar": "تصف التعليمات إجراء الاستبدال العادي عندما يتبقّى أقل من ١٨ شهراً على انتهاء صلاحية الجواز. ويتيح جدول إثبات الهوية، في حالة الاستبدال المحدّدة فيه، إخراج قيد وفق النموذج الجديد لم يمضِ على إصداره عام، مع استيفاء شروط المطابقة. تحقّق لدى الأمن العام ممّا ينطبق على حالتك.",
+        "fr": "Remplacement ordinaire décrit à moins de 18 mois d’échéance. Le tableau permet aussi un extrait concordant de moins d’un an dans le parcours indiqué. Confirmez votre cas."
+      },
+      "sourceNote": {
+        "en": "Official sources rechecked on 27 September 2026; the published base fees are unchanged. Photo and identity details vary by route; confirm special cases directly.",
+        "ar": "أُعيدت مراجعة المصادر الرسمية في ٢٧ أيلول ٢٠٢٦؛ لم تتغير الرسوم الأساسية المنشورة. تختلف تفاصيل الهوية والصور حسب نوع الطلب؛ استفسر مباشرة عن الحالات الخاصة.",
+        "fr": "Sources officielles revérifiées le 27 septembre 2026 ; les tarifs de base publiés sont inchangés. Les justificatifs et photos varient selon la démarche ; confirmez les cas particuliers."
+      },
+      "evidence": "core",
+      "sources": [
+        {
+          "url": "https://www.general-security.gov.lb/ar/posts/11",
+          "title": {
+            "en": "General Security — new passport",
+            "ar": "الأمن العام — إصدار جواز سفر جديد",
+            "fr": "Sûreté générale — nouveau passeport"
+          }
+        },
+        {
+          "url": "https://www.general-security.gov.lb/ar/posts/408",
+          "title": {
+            "en": "Identity-document rules",
+            "ar": "معايير مستندات الهوية",
+            "fr": "Règles des justificatifs d’identité"
+          }
+        },
+        {
+          "url": "https://www.general-security.gov.lb/ar/posts/69",
+          "title": {
+            "en": "Passport replacement",
+            "ar": "إبدال جواز السفر",
+            "fr": "Remplacement du passeport"
+          }
+        },
+        {
+          "url": "https://www.general-security.gov.lb/ar/posts/493",
+          "title": {
+            "en": "Fees and processing times",
+            "ar": "الرسوم ومهل الإنجاز",
+            "fr": "Frais et délais"
+          }
+        }
+      ],
+      "channel": {
+        "url": "https://www.general-security.gov.lb/ar/posts/141",
+        "title": {
+          "en": "General Security contact center — 1717",
+          "ar": "مركز اتصال الأمن العام — ١٧١٧",
+          "fr": "Centre de contact Sûreté générale — 1717"
+        }
+      }
+    },
+    "police": {
+      "title": {
+        "en": "Judicial record",
+        "ar": "السجل العدلي",
+        "fr": "Casier judiciaire"
+      },
+      "subtitle": {
+        "en": "Police records & background clearance",
+        "ar": "إصدار بيان السجل العدلي",
+        "fr": "Obtention d’un extrait de casier judiciaire"
+      },
+      "category": {
+        "en": "Civil & legal",
+        "ar": "المعاملات المدنية والقانونية",
+        "fr": "État civil et justice"
+      },
+      "scope": {
+        "en": "Lebanese residents; other applicant categories need separate checks",
+        "ar": "للمواطنين اللبنانيين المقيمين؛ تحقّق من الشروط الخاصة بالفئات الأخرى",
+        "fr": "Libanais résidents ; autres catégories à vérifier séparément"
+      },
+      "eligibility": [
+        {
+          "en": "ISF lists personal, legal-representative, mukhtar-certified mandate, and LibanPost routes.",
+          "ar": "تذكر قوى الأمن الداخلي إمكان التقديم شخصياً، أو بواسطة وكيل قانوني، أو بتفويض مصدّق من المختار، أو عبر ليبان بوست.",
+          "fr": "Les FSI indiquent plusieurs modalités : en personne, par mandataire légal, avec un mandat certifié par le moukhtar ou via LibanPost."
+        },
+        {
+          "en": "Foreign residents, applicants abroad, and institutional requests have different document rules.",
+          "ar": "تختلف المستندات المطلوبة للأجانب المقيمين، وللمتقدّمين من خارج لبنان، وللطلبات المقدّمة من المؤسسات.",
+          "fr": "Les résidents étrangers, personnes à l’étranger et organismes suivent des règles différentes."
+        }
+      ],
+      "documents": [
+        {
+          "id": "identity",
+          "title": {
+            "en": "ID card, civil-status extract, or passport",
+            "ar": "بطاقة هوية أو إخراج قيد أو جواز سفر",
+            "fr": "Carte d’identité, extrait d’état civil ou passeport"
+          },
+          "note": {
+            "en": "ISF lists these alternatives for Lebanese residents.",
+            "ar": "تذكر قوى الأمن الداخلي هذه المستندات كبدائل مقبولة للمواطنين اللبنانيين المقيمين.",
+            "fr": "Alternatives indiquées par les FSI pour les Libanais résidents."
+          }
+        },
+        {
+          "id": "authorization",
+          "title": {
+            "en": "Authorization — represented applicants only",
+            "ar": "تفويض — إذا قدّم شخص آخر الطلب نيابةً عنك",
+            "fr": "Mandat — en cas de représentation uniquement"
+          },
+          "note": {
+            "en": "Use the authorization accepted for your submission route.",
+            "ar": "استخدم التفويض المعتمد بحسب الطريقة التي ستقدّم بها الطلب.",
+            "fr": "Utilisez le mandat accepté pour votre parcours."
+          }
+        },
+        {
+          "id": "residence",
+          "title": {
+            "en": "Residence evidence — foreign residents only",
+            "ar": "إثبات إقامة — للأجانب فقط",
+            "fr": "Justificatif de séjour — étrangers uniquement"
+          },
+          "note": {
+            "en": "Confirm identity and legal-residence evidence for your nationality.",
+            "ar": "تحقّق من مستندات إثبات الهوية والإقامة القانونية المطلوبة بحسب جنسيتك.",
+            "fr": "Confirmez les justificatifs d’identité et de séjour selon votre nationalité."
+          }
+        },
+        {
+          "id": "employer",
+          "title": {
+            "en": "Institution letter — institutional requests only",
+            "ar": "كتاب رسمي من المؤسسة — لطلبات المؤسسات فقط",
+            "fr": "Lettre de l’organisme — demandes institutionnelles"
+          },
+          "note": {
+            "en": "ISF describes a letter naming the authorized recipient alongside identity documents.",
+            "ar": "تذكر قوى الأمن الداخلي كتاباً رسمياً يحدّد الشخص المفوّض باستلام المستند، إلى جانب مستندات إثبات الهوية.",
+            "fr": "Les FSI prévoient une lettre désignant le destinataire autorisé, avec les pièces d’identité."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "location": {
+        "en": "ISF criminal-record offices during official hours; LibanPost offers a separate delivery route.",
+        "ar": "مكاتب السجل العدلي التابعة لقوى الأمن الداخلي خلال الدوام الرسمي. وتوفّر ليبان بوست خدمة منفصلة لتوصيل المستند.",
+        "fr": "Bureaux du casier des FSI aux heures officielles ; voie de livraison distincte chez LibanPost."
+      },
+      "appointments": {
+        "en": "ISF describes reception during official hours, not a live calendar. Confirm office hours before visiting.",
+        "ar": "توضح قوى الأمن الداخلي أوقات استقبال المراجعين، ولا تعرض مواعيد شاغرة لحظة بلحظة. تحقّق من الدوام قبل الزيارة.",
+        "fr": "Les FSI décrivent un accueil aux heures officielles, pas un calendrier en direct. Confirmez les horaires."
+      },
+      "sourceNote": {
+        "en": "Source-backed routes; conditional documents apply only to the stated category. Current fees and live dates are unverified.",
+        "ar": "تستند طرق تقديم الطلب إلى المصادر المذكورة. بعض المستندات تخص فئات محدّدة فقط. لم يُتحقّق من الرسوم الحالية أو المواعيد الشاغرة.",
+        "fr": "Parcours sourcés ; pièces conditionnelles selon la catégorie. Frais actuels et créneaux non vérifiés."
+      },
+      "sources": [
+        {
+          "url": "https://isf.gov.lb/faq/",
+          "title": {
+            "en": "ISF — criminal-record guidance",
+            "ar": "قوى الأمن الداخلي — السجل العدلي",
+            "fr": "Forces de sécurité intérieure — casier judiciaire"
+          }
+        },
+        {
+          "url": "https://www.libanpost.com/english/police-record",
+          "title": {
+            "en": "LibanPost — police record",
+            "ar": "ليبان بوست — السجل العدلي",
+            "fr": "LibanPost — casier judiciaire"
+          }
+        }
+      ],
+      "evidence": "core",
+      "channel": {
+        "url": "https://isf.gov.lb/faq/",
+        "title": {
+          "en": "ISF — criminal-record guidance",
+          "ar": "قوى الأمن الداخلي — السجل العدلي",
+          "fr": "Forces de sécurité intérieure — casier judiciaire"
+        }
+      }
+    },
+    "driving": {
+      "title": {
+        "en": "Driving license",
+        "ar": "رخصة القيادة",
+        "fr": "Permis de conduire"
+      },
+      "subtitle": {
+        "en": "First licenses, tests & renewals",
+        "ar": "إصدار رخصة القيادة للمرة الأولى، والاختبارات، والتجديد",
+        "fr": "Première demande, examens et renouvellement"
+      },
+      "category": {
+        "en": "Transport",
+        "ar": "النقل",
+        "fr": "Transport"
+      },
+      "scope": {
+        "en": "Preparation template pending TMO confirmation",
+        "ar": "قائمة أولية للتحضير؛ تحقّق من متطلباتها لدى هيئة السير",
+        "fr": "Liste préparatoire à confirmer auprès de la TMO"
+      },
+      "eligibility": [
+        {
+          "en": "Confirm age, nationality/residence, category, and medical eligibility with TMO.",
+          "ar": "تحقّق لدى هيئة السير من شروط العمر والجنسية أو الإقامة وفئة الرخصة واللياقة الصحية.",
+          "fr": "Vérifiez auprès de la TMO les conditions d’âge, de nationalité ou de résidence, ainsi que la catégorie du permis et les exigences d’aptitude médicale."
+        },
+        {
+          "en": "First applications and renewals differ. TMO’s live calendar was not accessible during this review.",
+          "ar": "تختلف إجراءات إصدار رخصة القيادة للمرة الأولى عن إجراءات تجديدها. تعذّر الاطلاع على المواعيد المتاحة لدى هيئة السير أثناء مراجعة المعلومات.",
+          "fr": "Les démarches diffèrent entre une première demande et un renouvellement. Le calendrier de rendez-vous de la TMO était inaccessible lors de cette vérification."
+        }
+      ],
+      "documents": [
+        {
+          "id": "identity",
+          "title": {
+            "en": "Identity document and copies",
+            "ar": "مستند إثبات الهوية ونسخ عنه",
+            "fr": "Pièce d’identité et copies"
+          },
+          "note": {
+            "en": "Confirm the accepted ID and copies for your exact procedure.",
+            "ar": "تحقّق من مستند الهوية المقبول والنسخ المطلوبة لمعاملتك.",
+            "fr": "Vérifiez quelle pièce d’identité est acceptée et quelles copies sont nécessaires pour votre démarche."
+          }
+        },
+        {
+          "id": "form",
+          "title": {
+            "en": "Driving-license application form",
+            "ar": "استمارة طلب رخصة القيادة",
+            "fr": "Formulaire de permis de conduire"
+          },
+          "note": {
+            "en": "Confirm the form for your category and request type.",
+            "ar": "تحقّق من الاستمارة المناسبة لفئة رخصة القيادة ونوع الطلب.",
+            "fr": "Confirmez le formulaire pour votre catégorie et demande."
+          }
+        },
+        {
+          "id": "photo",
+          "title": {
+            "en": "Recent photographs",
+            "ar": "صور شمسية حديثة",
+            "fr": "Photos d’identité récentes"
+          },
+          "note": {
+            "en": "Confirm quantity, dimensions, and certification.",
+            "ar": "تحقّق من عدد الصور وأبعادها والتصديق المطلوب.",
+            "fr": "Vérifiez le nombre de photos, leur format et la certification requise."
+          }
+        },
+        {
+          "id": "medical",
+          "title": {
+            "en": "Medical / fitness certificate",
+            "ar": "شهادة طبية أو شهادة لياقة صحية",
+            "fr": "Certificat médical / d’aptitude"
+          },
+          "note": {
+            "en": "Draft item: confirm necessity, validity, and accepted practitioner.",
+            "ar": "مستند محتمل: تحقّق من وجوب تقديمه ومدة صلاحيته والطبيب المعتمد لإصداره.",
+            "fr": "Pièce à confirmer : vérifiez si elle est nécessaire, sa durée de validité et les praticiens habilités à la délivrer."
+          }
+        },
+        {
+          "id": "training",
+          "title": {
+            "en": "Training and test documents, if applicable",
+            "ar": "مستندات التدريب والاختبارات، إذا كانت مطلوبة لحالتك",
+            "fr": "Justificatifs de formation et d’examens, si applicables"
+          },
+          "note": {
+            "en": "Ask about theory/practical tests and first-license training records.",
+            "ar": "استفسر عن الاختبارين النظري والعملي، وعن سجل التدريب المطلوب لإصدار رخصة القيادة للمرة الأولى.",
+            "fr": "Renseignez-vous sur les examens théoriques, pratiques et la formation."
+          },
+          "applicationOnly": true
+        },
+        {
+          "id": "license",
+          "title": {
+            "en": "Existing driving license",
+            "ar": "رخصة القيادة الحالية",
+            "fr": "Permis de conduire actuel"
+          },
+          "note": {
+            "en": "For renewal: confirm originals and copies.",
+            "ar": "للتجديد: تحقّق من المستندات الأصلية والنسخ المطلوب تقديمها.",
+            "fr": "Pour renouveler : confirmez originaux et copies."
+          },
+          "renewalOnly": true
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "location": {
+        "en": "Competent TMO branch. LibanPost lists selected renewal services; confirm availability.",
+        "ar": "فرع هيئة السير المختص. تعرض ليبان بوست بعض خدمات التجديد؛ تحقّق من توفر الخدمة التي تحتاجها.",
+        "fr": "Centre compétent de la TMO. LibanPost indique certains renouvellements ; confirmez leur disponibilité."
+      },
+      "appointments": {
+        "en": "Check the official TMO portal for service, branch, and booking instructions. LebFlow has no live slots.",
+        "ar": "راجع الموقع الرسمي لهيئة السير لمعرفة الخدمة والفرع المختص وكيفية حجز موعد. لا تعرض LebFlow المواعيد الشاغرة في الوقت الفعلي.",
+        "fr": "Consultez le portail officiel de la TMO pour choisir le service et le centre compétent, puis suivre les instructions de réservation. LebFlow n’affiche pas les disponibilités en temps réel."
+      },
+      "renewal": {
+        "en": "Bring the current license and confirm medical or examination requirements.",
+        "ar": "أحضر رخصة القيادة الحالية، وتحقّق من الشهادات الطبية أو الاختبارات المطلوبة للتجديد.",
+        "fr": "Apportez votre permis actuel et vérifiez les certificats médicaux et les examens éventuellement requis."
+      },
+      "sourceNote": {
+        "en": "LibanPost confirms selected routes, not this full checklist. Document requirements remain a draft.",
+        "ar": "تؤكد معلومات ليبان بوست توفر بعض طرق إنجاز المعاملة، لكنها لا تؤكد جميع مستندات هذه القائمة. تحقّق من المستندات المطلوبة لدى الجهة المختصة.",
+        "fr": "LibanPost confirme certains parcours, pas toute cette liste. Les pièces restent à confirmer."
+      },
+      "sources": [
+        {
+          "url": "https://tmo.gov.lb/web/",
+          "title": {
+            "en": "Official TMO portal",
+            "ar": "بوابة هيئة السير الرسمية",
+            "fr": "Portail officiel TMO"
+          }
+        },
+        {
+          "url": "https://www.libanpost.com/english/registration-department",
+          "title": {
+            "en": "LibanPost — registration services",
+            "ar": "ليبان بوست — معاملات التسجيل",
+            "fr": "LibanPost — immatriculation"
+          }
+        }
+      ],
+      "channel": {
+        "url": "https://tmo.gov.lb/web/",
+        "title": {
+          "en": "Official TMO portal",
+          "ar": "بوابة هيئة السير الرسمية",
+          "fr": "Portail officiel TMO"
+        }
+      },
+      "evidence": "partial"
+    },
+    "university": {
+      "title": {
+        "en": "University documents",
+        "ar": "المستندات الجامعية",
+        "fr": "Documents universitaires"
+      },
+      "subtitle": {
+        "en": "Certificates, transcripts & authentication",
+        "ar": "الشهادات الجامعية وكشوف العلامات وتصديق المستندات",
+        "fr": "Diplômes, relevés et authentification"
+      },
+      "category": {
+        "en": "Education",
+        "ar": "التعليم",
+        "fr": "Éducation"
+      },
+      "scope": {
+        "en": "University issuance; MEHE authentication for licensed private institutions in Lebanon",
+        "ar": "إصدار المستندات من الجامعة؛ وتصديقها لدى الوزارة لمؤسسات التعليم العالي الخاص المرخّصة في لبنان",
+        "fr": "Délivrance universitaire ; authentification MEES des établissements privés agréés au Liban"
+      },
+      "eligibility": [
+        {
+          "en": "Issuance, authentication, and degree equivalence are separate procedures.",
+          "ar": "إصدار المستندات، وتصديقها، ومعادلة الشهادات إجراءات منفصلة.",
+          "fr": "Délivrance, authentification et équivalence sont des démarches distinctes."
+        },
+        {
+          "en": "The cited MEHE office authenticates documents from licensed private higher-education institutions in Lebanon.",
+          "ar": "يختص مكتب الوزارة المشار إليه في المصدر بتصديق مستندات مؤسسات التعليم العالي الخاص المرخّصة في لبنان.",
+          "fr": "Le service du ministère de l’Éducation cité en source authentifie les documents des établissements privés d’enseignement supérieur agréés au Liban."
+        }
+      ],
+      "documents": [
+        {
+          "id": "identity",
+          "title": {
+            "en": "Identity document and copies",
+            "ar": "مستند إثبات الهوية ونسخ عنه",
+            "fr": "Pièce d’identité et copies"
+          },
+          "note": {
+            "en": "Confirm the accepted ID and copies for your exact procedure.",
+            "ar": "تحقّق من مستند الهوية المقبول والنسخ المطلوبة لمعاملتك.",
+            "fr": "Vérifiez quelle pièce d’identité est acceptée et quelles copies sont nécessaires pour votre démarche."
+          }
+        },
+        {
+          "id": "academic",
+          "title": {
+            "en": "Certificate or transcript to authenticate",
+            "ar": "الشهادة أو كشف العلامات للتصديق",
+            "fr": "Diplôme ou relevé à authentifier"
+          },
+          "note": {
+            "en": "Confirm originals, university seals/signatures, and copies.",
+            "ar": "تحقّق من المستندات الأصلية والنسخ المطلوبة، ومن أختام الجامعة وتواقيعها اللازمة.",
+            "fr": "Vérifiez les originaux et les copies à fournir, ainsi que les cachets et les signatures de l’université requis."
+          }
+        },
+        {
+          "id": "student",
+          "title": {
+            "en": "Student / graduate reference",
+            "ar": "بيانات الطالب أو الخرّيج",
+            "fr": "Référence étudiant / diplômé"
+          },
+          "note": {
+            "en": "For issuance: institution, program, and student number.",
+            "ar": "لإصدار المستند، جهّز اسم المؤسسة التعليمية والبرنامج الدراسي ورقم الطالب.",
+            "fr": "Pour faire établir le document, indiquez l’établissement, le cursus et le numéro étudiant."
+          }
+        },
+        {
+          "id": "form",
+          "title": {
+            "en": "Procedure-specific request form",
+            "ar": "استمارة الطلب الخاصة بالمعاملة",
+            "fr": "Formulaire propre à la démarche"
+          },
+          "note": {
+            "en": "Ask whether a form or representation authorization is needed.",
+            "ar": "استفسر عمّا إذا كانت المعاملة تتطلّب استمارة أو تفويضاً لشخص يقدّم الطلب نيابةً عنك.",
+            "fr": "Demandez si un formulaire ou mandat est nécessaire."
+          }
+        },
+        {
+          "id": "translation",
+          "title": {
+            "en": "Translation / prior attestations, if applicable",
+            "ar": "ترجمة أو تصديقات مسبقة عند الحاجة",
+            "fr": "Traduction / attestations préalables, si applicables"
+          },
+          "note": {
+            "en": "Confirm the legalization route for foreign documents or use abroad.",
+            "ar": "تحقّق من إجراءات تصديق المستندات الصادرة خارج لبنان أو المطلوب استخدامها في الخارج.",
+            "fr": "Confirmez la légalisation pour les documents étrangers ou destinés à l’étranger."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "location": {
+        "en": "MEHE authentication: first floor of the ministry. University issuance: your registrar.",
+        "ar": "لتصديق المستندات: الطابق الأول في وزارة التربية. ولإصدارها من الجامعة: مكتب التسجيل في جامعتك.",
+        "fr": "Authentification : au premier étage du ministère de l’Éducation. Délivrance par l’université : auprès du service de la scolarité."
+      },
+      "appointments": {
+        "en": "Published reception 09:00–13:00; collection the next day. Confirm working days and changes at 01 772531. These hours are not bookable slots.",
+        "ar": "أوقات الاستقبال المنشورة من ٠٩:٠٠ إلى ١٣:٠٠، واستلام المستندات في اليوم التالي. تحقّق من أيام العمل وأي تغييرات بالاتصال على 01 772531. هذه ساعات استقبال، وليست مواعيد للحجز.",
+        "fr": "Accueil publié 09 h–13 h ; retrait le lendemain. Confirmez jours et changements au 01 772531. Ce ne sont pas des créneaux réservables."
+      },
+      "sourceNote": {
+        "en": "Office scope/hours are sourced. The page does not supply a complete current attachment list or fee schedule.",
+        "ar": "توضّح المصادر اختصاص المكتب وأوقات دوامه. لكن الصفحة لا تتضمّن قائمة كاملة ومحدّثة بالمستندات المطلوبة أو جدولاً للرسوم.",
+        "fr": "Périmètre et horaires sourcés. La page ne fournit pas de liste complète actuelle ni de barème."
+      },
+      "sources": [
+        {
+          "url": "https://www.mehe.gov.lb/ar/services/المصادقات-الجامعية",
+          "title": {
+            "en": "MEHE — university authentication",
+            "ar": "وزارة التربية — المصادقات الجامعية",
+            "fr": "Ministère de l’Éducation — authentification des documents universitaires"
+          }
+        }
+      ],
+      "channel": {
+        "url": "https://www.mehe.gov.lb/ar/services/المصادقات-الجامعية",
+        "title": {
+          "en": "MEHE — university authentication",
+          "ar": "وزارة التربية — المصادقات الجامعية",
+          "fr": "Ministère de l’Éducation — authentification des documents universitaires"
+        }
+      },
+      "evidence": "partial"
+    },
+    "municipality": {
+      "title": {
+        "en": "Municipality services",
+        "ar": "خدمات البلدية",
+        "fr": "Services municipaux"
+      },
+      "subtitle": {
+        "en": "Local permits & municipal documents",
+        "ar": "رخص ومستندات بلدية",
+        "fr": "Permis et documents municipaux"
+      },
+      "category": {
+        "en": "Municipality",
+        "ar": "البلدية",
+        "fr": "Municipalité"
+      },
+      "scope": {
+        "en": "General municipal preparation; construction items apply only to building permits",
+        "ar": "إرشادات عامة للتحضير للمعاملات البلدية؛ مستندات البناء تخص طلبات رخص البناء فقط",
+        "fr": "Préparation municipale ; pièces de construction uniquement pour permis de construire"
+      },
+      "eligibility": [
+        {
+          "en": "Confirm your municipality, cadastral area, and exact procedure.",
+          "ar": "تحقّق من البلدية المختصة والمنطقة العقارية ونوع المعاملة التي تريد إنجازها.",
+          "fr": "Vérifiez la municipalité compétente, la zone cadastrale et la démarche exacte à effectuer."
+        },
+        {
+          "en": "Construction requires an engineer and project-specific approvals; these are not universal municipal requirements.",
+          "ar": "تتطلّب مشاريع البناء الاستعانة بمهندس والحصول على موافقات خاصة بالمشروع. لا تنطبق هذه الشروط على جميع المعاملات البلدية.",
+          "fr": "Les projets de construction nécessitent un ingénieur et des autorisations propres au projet. Ces exigences ne s’appliquent pas à toutes les démarches municipales."
+        }
+      ],
+      "documents": [
+        {
+          "id": "identity",
+          "title": {
+            "en": "Identity document and copies",
+            "ar": "مستند إثبات الهوية ونسخ عنه",
+            "fr": "Pièce d’identité et copies"
+          },
+          "note": {
+            "en": "Confirm the accepted ID and copies for your exact procedure.",
+            "ar": "تحقّق من مستند الهوية المقبول والنسخ المطلوبة لمعاملتك.",
+            "fr": "Vérifiez quelle pièce d’identité est acceptée et quelles copies sont nécessaires pour votre démarche."
+          }
+        },
+        {
+          "id": "form",
+          "title": {
+            "en": "Municipal application form",
+            "ar": "استمارة المعاملة البلدية",
+            "fr": "Formulaire municipal"
+          },
+          "note": {
+            "en": "Obtain the form for your specific certificate or permit.",
+            "ar": "احصل على الاستمارة الخاصة بالإفادة أو الرخصة التي تحتاجها.",
+            "fr": "Obtenez le formulaire du certificat ou permis précis."
+          }
+        },
+        {
+          "id": "property",
+          "title": {
+            "en": "Property / representation documents, if applicable",
+            "ar": "مستندات العقار أو التفويض القانوني، عند الحاجة",
+            "fr": "Pièces foncières / mandat, si applicables"
+          },
+          "note": {
+            "en": "For construction: confirm owner/co-owner signatures and legal representation.",
+            "ar": "لمعاملات البناء: تحقّق من التواقيع المطلوبة من المالك والشركاء في الملكية، ومن مستندات التفويض القانوني.",
+            "fr": "Construction : confirmez signatures des propriétaires et représentation légale."
+          }
+        },
+        {
+          "id": "plans",
+          "title": {
+            "en": "Engineer’s file and plans — construction only",
+            "ar": "ملف المهندس والخرائط — للبناء فقط",
+            "fr": "Dossier d’ingénieur et plans — construction uniquement"
+          },
+          "note": {
+            "en": "DGU lists commitments, site/access plans, surveys, photos, and municipal technical conditions.",
+            "ar": "تذكر المديرية العامة للتنظيم المدني التعهّدات، وخرائط الموقع وطرق الوصول إليه، وخرائط المساحة، والصور، والشروط الفنية البلدية.",
+            "fr": "La DGU cite engagements, plans du site et d’accès, levés, photos et conditions municipales."
+          }
+        },
+        {
+          "id": "planning",
+          "title": {
+            "en": "Planning/easement certificate — construction only",
+            "ar": "إفادة تخطيط وارتفاق — للبناء فقط",
+            "fr": "Certificat d’urbanisme et servitudes — construction uniquement"
+          },
+          "note": {
+            "en": "DGU specifies a certificate less than 3 months old with attachments.",
+            "ar": "تحدّد المديرية العامة للتنظيم المدني إفادة لم يمضِ على إصدارها ٣ أشهر، مع مرفقاتها.",
+            "fr": "La DGU prévoit un certificat de moins de 3 mois avec annexes."
+          }
+        },
+        {
+          "id": "valuation",
+          "title": {
+            "en": "Valuation / sector approvals — if applicable",
+            "ar": "تخمين قيمة العقار أو موافقات الجهات المختصة — عند الحاجة",
+            "fr": "Évaluation / autorisations sectorielles — si applicables"
+          },
+          "note": {
+            "en": "Confirm municipal land valuation and additional approvals for the project type.",
+            "ar": "تحقّق من التخمين البلدي لقيمة الأرض، ومن الموافقات الإضافية المطلوبة بحسب نوع المشروع.",
+            "fr": "Confirmez l’évaluation municipale et les autorisations propres au projet."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Confirm current municipal/project fees. The undated DGU page is not a current price quote.",
+        "ar": "استفسر عن الرسوم الحالية لدى البلدية بحسب نوع المشروع. لا يظهر تاريخ تحديث صفحة التنظيم المدني، لذلك لا يمكن اعتمادها لتحديد الرسوم الحالية.",
+        "fr": "Confirmez les frais actuels. La page DGU non datée ne constitue pas un tarif actuel."
+      },
+      "location": {
+        "en": "Your responsible municipality; construction may involve DGU or municipal unions by jurisdiction.",
+        "ar": "البلدية المختصة بمعاملتك. وقد تتطلّب معاملات البناء مراجعة التنظيم المدني أو اتحاد البلديات بحسب الصلاحيات.",
+        "fr": "Municipalité compétente ; DGU ou unions municipales possibles selon la compétence."
+      },
+      "appointments": {
+        "en": "Contact your municipality for reception and inspections. No shared national booking calendar was verified.",
+        "ar": "تواصل مع بلديتك لمعرفة أوقات استقبال المراجعين ومواعيد الكشف الميداني. لم يُتحقّق من وجود نظام موحّد لحجز المواعيد على مستوى لبنان.",
+        "fr": "Contactez votre municipalité pour connaître les horaires d’accueil et organiser les inspections. L’existence d’un calendrier national commun de réservation n’a pas été vérifiée."
+      },
+      "sourceNote": {
+        "en": "DGU construction examples are not a universal checklist. The page has no clear update date; confirm locally.",
+        "ar": "الأمثلة الواردة من التنظيم المدني تخص معاملات البناء، ولا تنطبق على جميع المعاملات البلدية. لا يظهر تاريخ تحديث واضح للصفحة؛ تحقّق من التفاصيل لدى بلديتك.",
+        "fr": "Les exemples DGU ne forment pas une liste universelle. Mise à jour non précisée ; confirmez localement."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgu.gov.lb/dgup_14.html",
+          "title": {
+            "en": "DGU — new building permit",
+            "ar": "التنظيم المدني — رخصة لبناء جديد",
+            "fr": "DGU — permis de construire"
+          }
+        }
+      ],
+      "evidence": "partial"
+    },
+    "identity": {
+      "title": {
+        "en": "Lebanese ID card",
+        "ar": "بطاقة الهوية اللبنانية",
+        "fr": "Carte d’identité libanaise"
+      },
+      "subtitle": {
+        "en": "First card, renewal or replacement",
+        "ar": "إصدار أول بطاقة أو تجديدها أو استبدالها",
+        "fr": "Première demande, renouvellement ou remplacement"
+      },
+      "category": {
+        "en": "Civil status",
+        "ar": "الأحوال الشخصية",
+        "fr": "État civil"
+      },
+      "scope": {
+        "en": "Prepare an ID application with DGCS, including a child’s first card. LebFlow does not issue cards.",
+        "ar": "حضّر طلب الهوية لدى الأحوال الشخصية، بما فيه أول بطاقة للطفل. لا يصدر LebFlow بطاقات.",
+        "fr": "Préparer une demande DGCS, y compris la première carte d’un enfant. LebFlow ne délivre pas de cartes."
+      },
+      "eligibility": [
+        {
+          "en": "A guardian can apply for a child under 15. Confirm the appropriate submission route.",
+          "ar": "يمكن لولي الأمر تقديم طلب لمن دون ١٥ عامًا. تحقّق من مسار التقديم المناسب.",
+          "fr": "Un représentant légal peut demander une carte pour un enfant de moins de 15 ans. Confirmez la voie de dépôt."
+        }
+      ],
+      "documents": [
+        {
+          "id": "photos",
+          "title": {
+            "en": "Two recent certified photos",
+            "ar": "صورتان حديثتان مصدقتان",
+            "fr": "Deux photos récentes certifiées"
+          },
+          "note": {
+            "en": "For the mukhtar route.",
+            "ar": "لمسار التقديم لدى المختار.",
+            "fr": "Pour un dépôt chez le mokhtar."
+          }
+        },
+        {
+          "id": "extract",
+          "title": {
+            "en": "ID-specific civil-status extract",
+            "ar": "بيان قيد مخصص للهوية",
+            "fr": "Extrait destiné à la carte d’identité"
+          },
+          "note": {
+            "en": "Issued within six months, or a certified copy.",
+            "ar": "صادر خلال ستة أشهر، أو نسخة طبق الأصل.",
+            "fr": "De moins de six mois, ou copie certifiée."
+          }
+        },
+        {
+          "id": "blood",
+          "title": {
+            "en": "Blood-group evidence",
+            "ar": "إثبات فئة الدم",
+            "fr": "Justificatif du groupe sanguin"
+          },
+          "note": {
+            "en": "Medical report or laboratory result.",
+            "ar": "تقرير طبي أو فحص مخبري.",
+            "fr": "Rapport médical ou résultat de laboratoire."
+          }
+        },
+        {
+          "id": "residence",
+          "title": {
+            "en": "Mukhtar identification certificate",
+            "ar": "إفادة تعريف من المختار",
+            "fr": "Attestation d’identité du mokhtar"
+          },
+          "note": {
+            "en": "For submission at a fingerprint station.",
+            "ar": "عند التقديم في محطة البصم.",
+            "fr": "Pour un dépôt en station biométrique."
+          }
+        },
+        {
+          "id": "previous",
+          "title": {
+            "en": "Original ID card",
+            "ar": "بطاقة الهوية الأصلية",
+            "fr": "Carte originale"
+          },
+          "note": {
+            "en": "For renewal or correction.",
+            "ar": "للتجديد أو التصحيح.",
+            "fr": "Pour renouvellement ou correction."
+          },
+          "renewalOnly": true
+        },
+        {
+          "id": "loss",
+          "title": {
+            "en": "Loss report, if applicable",
+            "ar": "محضر فقدان عند الاقتضاء",
+            "fr": "Déclaration de perte, si nécessaire"
+          },
+          "note": {
+            "en": "Lost cards follow a separate police/prosecutor procedure; confirm with DGCS.",
+            "ar": "للهوية المفقودة إجراءات لدى النيابة العامة والمخفر؛ تحقّق لدى الأحوال الشخصية.",
+            "fr": "La perte nécessite une démarche auprès du parquet et de la police ; confirmez auprès de la DGCS."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "location": {
+        "en": "Mukhtar of the registration area or civil-registry fingerprint station. Confirm child-specific arrangements.",
+        "ar": "مختار منطقة القيد أو محطة البصم في قلم النفوس. تحقّق من ترتيبات الأطفال.",
+        "fr": "Mokhtar du lieu d’inscription ou station biométrique du registre civil. Confirmez les modalités pour enfants."
+      },
+      "appointments": {
+        "en": "Contact the receiving office; no live booking is connected.",
+        "ar": "تواصل مع الجهة المستقبلة؛ لا يوجد ربط بحجز رسمي.",
+        "fr": "Contactez le bureau ; aucune réservation officielle n’est connectée."
+      },
+      "renewal": {
+        "en": "Select renewal and bring the original card with the other applicable documents. Ask the office about damaged, lost or corrected cards.",
+        "ar": "اختر التجديد وأحضر البطاقة الأصلية مع المستندات المنطبقة. استفسر عن البطاقة التالفة أو المفقودة أو تصحيح البيانات.",
+        "fr": "Choisissez le renouvellement et apportez la carte originale et les pièces applicables. Confirmez les démarches pour perte, détérioration ou correction."
+      },
+      "sourceNote": {
+        "en": "Reviewed 27 September 2026. The official page contains conflicting age wording and a legacy stamp amount; confirm these directly.",
+        "ar": "رُوجع في ٢٧ أيلول ٢٠٢٦. تتضمن الصفحة الرسمية اختلافًا في صياغة شروط العمر وقيمة قديمة للطوابع؛ تحقّق منهما مباشرة.",
+        "fr": "Consulté le 27 septembre 2026. La page comporte des indications d’âge contradictoires et un ancien montant de timbres ; confirmez-les directement."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgcs.gov.lb/arabic/identitycard",
+          "title": {
+            "en": "DGCS — ID applications and tracking",
+            "ar": "الأحوال الشخصية — طلب الهوية وتتبعه",
+            "fr": "DGCS — demande et suivi de carte"
+          }
+        }
+      ],
+      "channel": {
+        "url": "https://www.dgcs.gov.lb/arabic/identitycard",
+        "title": {
+          "en": "Official ID tracking and guidance",
+          "ar": "التتبع والإرشادات الرسمية للهوية",
+          "fr": "Suivi officiel et instructions"
+        }
+      },
+      "evidence": "partial",
+      "lastReviewedAt": "2026-09-27"
+    },
+    "civil": {
+      "title": {
+        "en": "Individual civil-status extract",
+        "ar": "إخراج قيد فردي",
+        "fr": "Extrait individuel d’état civil"
+      },
+      "subtitle": {
+        "en": "Prepare an electronic extract request",
+        "ar": "حضّر طلب إخراج القيد الإلكتروني",
+        "fr": "Préparer une demande d’extrait électronique"
+      },
+      "category": {
+        "en": "Civil status",
+        "ar": "الأحوال الشخصية",
+        "fr": "État civil"
+      },
+      "scope": {
+        "en": "Preparation guide for the DGCS electronic extract route. LebFlow does not issue extracts.",
+        "ar": "دليل تحضيري لمسار إخراج القيد الإلكتروني لدى المديرية العامة للأحوال الشخصية. لا يصدر LebFlow إخراجات القيد.",
+        "fr": "Guide de préparation à la démarche DGCS. LebFlow ne délivre aucun extrait."
+      },
+      "eligibility": [
+        {
+          "en": "Confirm the applicant or representative requirements with the civil registry office.",
+          "ar": "تحقّق لدى قلم النفوس من شروط تقديم الطلب شخصيًا أو بواسطة وكيل.",
+          "fr": "Confirmez auprès du registre civil les conditions applicables au demandeur ou à son mandataire."
+        }
+      ],
+      "documents": [
+        {
+          "id": "form",
+          "title": {
+            "en": "DGCS extract request form",
+            "ar": "نموذج طلب بيان قيد",
+            "fr": "Formulaire DGCS de demande d’extrait"
+          },
+          "note": {
+            "en": "Use the form linked on the official DGCS page. Ask the office to confirm all supporting documents before visiting.",
+            "ar": "استخدم النموذج المنشور في صفحة المديرية الرسمية. تحقّق من جميع المستندات المرفقة المطلوبة لدى قلم النفوس قبل الزيارة.",
+            "fr": "Utilisez le formulaire de la page officielle DGCS et confirmez toutes les pièces justificatives avant votre visite."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "renewal": {
+        "en": "For a fresh copy, use the DGCS request form again. After the first electronic extract at the place of registration, DGCS allows subsequent copies from the place of residence. Confirm the receiving authority’s required issue date.",
+        "ar": "للحصول على نسخة حديثة، استخدم نموذج طلب بيان القيد مجددًا. بعد الإصدار الإلكتروني الأول من مكان القيد، تتيح المديرية الحصول على نسخ لاحقة من مكان السكن. تحقّق من حداثة الإصدار التي تشترطها الجهة المستقبلة.",
+        "fr": "Pour une nouvelle copie, utilisez de nouveau le formulaire DGCS. Après le premier extrait au lieu d’inscription, les suivants peuvent être obtenus au lieu de résidence. Confirmez l’ancienneté maximale acceptée par le destinataire."
+      },
+      "location": {
+        "en": "DGCS states that the first electronic extract is obtained at the place of registration; subsequent extracts can be obtained at the place of residence.",
+        "ar": "توضح المديرية أن إخراج القيد الإلكتروني يُستحصل عليه أول مرة من مكان القيد، ثم يمكن الحصول عليه من مكان السكن.",
+        "fr": "Selon la DGCS, le premier extrait électronique s’obtient au lieu d’inscription ; les suivants peuvent être obtenus au lieu de résidence."
+      },
+      "appointments": {
+        "en": "No live appointment availability is connected. Confirm office hours and processing times with the civil registry.",
+        "ar": "لا يتصل الموقع بنظام مواعيد رسمي. تحقّق من أوقات الدوام ومدة الإنجاز لدى قلم النفوس.",
+        "fr": "Aucune disponibilité officielle n’est connectée. Confirmez les horaires et délais auprès du registre civil."
+      },
+      "sourceNote": {
+        "en": "Official route and form link reviewed on 27 September 2026. This is a partial preparation guide; a complete document list and current fee were not verified.",
+        "ar": "رُوجع المسار الرسمي ورابط النموذج في ٢٧ أيلول ٢٠٢٦. هذا دليل تحضيري جزئي؛ لم يُتحقّق من قائمة كاملة للمستندات أو الرسوم الحالية.",
+        "fr": "Démarche et lien du formulaire consultés le 27 septembre 2026. Guide partiel : la liste complète des pièces et les frais actuels ne sont pas vérifiés."
+      },
+      "sources": [
+        {
+          "url": "https://www.dgcs.gov.lb/arabic/ekhraj-al-kaid-electronic",
+          "title": {
+            "en": "DGCS — electronic civil-status extract",
+            "ar": "المديرية العامة للأحوال الشخصية — إخراج القيد الإلكتروني",
+            "fr": "DGCS — extrait électronique d’état civil"
+          }
+        }
+      ],
+      "evidence": "partial",
+      "lastReviewedAt": "2026-09-27"
+    },
+    "professional": {
+      "title": {
+        "en": "Professional documents",
+        "ar": "المستندات المهنية",
+        "fr": "Documents professionnels"
+      },
+      "subtitle": {
+        "en": "Practice permissions & registrations",
+        "ar": "أذونات مزاولة المهنة والتسجيل المهني",
+        "fr": "Autorisations d’exercice et inscriptions"
+      },
+      "category": {
+        "en": "Work & business",
+        "ar": "العمل ومزاولة المهن",
+        "fr": "Travail et activité"
+      },
+      "scope": {
+        "en": "Profession-specific preparation • engineering example",
+        "ar": "متطلبات تختلف بحسب المهنة • الهندسة مثالاً",
+        "fr": "Préparation selon la profession • exemple de la profession d’ingénieur"
+      },
+      "eligibility": [
+        {
+          "en": "Practice permission and professional membership are separate steps. Confirm the competent body.",
+          "ar": "الحصول على إذن مزاولة المهنة والانتساب إلى الجهة المهنية إجراءان منفصلان. تحقّق من الجهة المختصة بكل إجراء.",
+          "fr": "Autorisation d’exercice et adhésion sont distinctes. Confirmez l’organisme compétent."
+        },
+        {
+          "en": "MEHE describes engineering submission through Public Works, or Agriculture for agricultural engineering.",
+          "ar": "توضح وزارة التربية أن طلب مزاولة مهنة الهندسة يُقدّم عبر وزارة الأشغال العامة، أو عبر وزارة الزراعة للهندسة الزراعية.",
+          "fr": "Le ministère de l’Éducation indique que la demande d’autorisation d’exercer la profession d’ingénieur passe par le ministère des Travaux publics, ou par le ministère de l’Agriculture pour les ingénieurs agronomes."
+        }
+      ],
+      "documents": [
+        {
+          "id": "identity",
+          "title": {
+            "en": "Identity document and copies",
+            "ar": "مستند إثبات الهوية ونسخ عنه",
+            "fr": "Pièce d’identité et copies"
+          },
+          "note": {
+            "en": "Confirm the accepted ID and copies for your exact procedure.",
+            "ar": "تحقّق من مستند الهوية المقبول والنسخ المطلوبة لمعاملتك.",
+            "fr": "Vérifiez quelle pièce d’identité est acceptée et quelles copies sont nécessaires pour votre démarche."
+          }
+        },
+        {
+          "id": "form",
+          "title": {
+            "en": "Professional application form",
+            "ar": "استمارة طلب مزاولة المهنة أو التسجيل المهني",
+            "fr": "Formulaire professionnel"
+          },
+          "note": {
+            "en": "Use the form for the exact permission or certificate.",
+            "ar": "استخدم الاستمارة الخاصة بالإذن أو الإفادة التي تريد الحصول عليها.",
+            "fr": "Utilisez le formulaire de l’autorisation ou certificat précis."
+          }
+        },
+        {
+          "id": "qualification",
+          "title": {
+            "en": "Qualifications and equivalence, if applicable",
+            "ar": "الشهادات والمؤهلات ومعادلتها، عند الحاجة",
+            "fr": "Diplômes et équivalence, si applicables"
+          },
+          "note": {
+            "en": "Confirm recognition, authenticated copies, and equivalence for your profession.",
+            "ar": "تحقّق من شروط الاعتراف بمؤهلاتك، ومن النسخ المصدّقة والمعادلات المطلوبة لمزاولة مهنتك.",
+            "fr": "Confirmez reconnaissance, copies authentifiées et équivalence."
+          }
+        },
+        {
+          "id": "membership",
+          "title": {
+            "en": "Membership / registration reference",
+            "ar": "بيانات الانتساب أو التسجيل المهني",
+            "fr": "Référence d’adhésion / inscription"
+          },
+          "note": {
+            "en": "Existing members: confirm registration evidence and subscription conditions.",
+            "ar": "إذا كنت منتسباً بالفعل، فتحقّق من إثبات التسجيل المطلوب وشروط الاشتراك.",
+            "fr": "Membres : confirmez preuve d’inscription et conditions de cotisation."
+          }
+        },
+        {
+          "id": "practice",
+          "title": {
+            "en": "Practice permission — where required",
+            "ar": "إذن مزاولة المهنة — إذا كان مطلوباً",
+            "fr": "Autorisation d’exercice — si requise"
+          },
+          "note": {
+            "en": "For engineering registration, confirm the competent order and permission requirements.",
+            "ar": "للانتساب كمهندس، تحقّق من النقابة المختصة وشروط الحصول على إذن مزاولة المهنة.",
+            "fr": "Pour l’inscription comme ingénieur, vérifiez l’ordre professionnel compétent et les conditions relatives à l’autorisation d’exercice."
+          }
+        }
+      ],
+      "fees": {
+        "en": "Current fee not verified. Confirm the amount and payment method with the receiving office.",
+        "ar": "لم يُتحقّق من الرسوم الحالية. استفسر عن المبلغ وطريقة الدفع لدى الجهة التي تتسلّم الطلب.",
+        "fr": "Les frais actuels n’ont pas été vérifiés. Renseignez-vous sur le montant et le mode de paiement auprès du service qui reçoit votre dossier."
+      },
+      "location": {
+        "en": "The ministry or professional body for your exact permission; confirm the receiving office.",
+        "ar": "الوزارة أو الجهة المهنية المختصة بالإذن المطلوب؛ تحقّق من المكتب الذي يتسلّم الطلب.",
+        "fr": "Ministère ou organisme compétent pour l’autorisation ; confirmez le bureau."
+      },
+      "appointments": {
+        "en": "Committee meetings are not appointment slots. Ask the receiving office about submission and interviews.",
+        "ar": "مواعيد اجتماعات اللجان ليست مواعيد متاحة للمتقدّمين. استفسر لدى المكتب المختص عن تقديم الطلبات والمقابلات.",
+        "fr": "Les réunions de commission ne correspondent pas à des rendez-vous pour les demandeurs. Renseignez-vous auprès du service compétent sur le dépôt du dossier et les entretiens."
+      },
+      "sourceNote": {
+        "en": "Engineering routes are sourced; the linked ministry attachment list was inaccessible. This remains a preparation template.",
+        "ar": "تستند إجراءات مزاولة مهنة الهندسة إلى المصادر المذكورة. تعذّر فتح قائمة المستندات المرفقة على موقع الوزارة؛ لذلك تبقى هذه القائمة أولية ويجب التحقّق منها.",
+        "fr": "Les démarches relatives à la profession d’ingénieur sont documentées par les sources. La liste des pièces jointe sur le site du ministère était inaccessible. Cette liste reste donc un outil de préparation à confirmer."
+      },
+      "sources": [
+        {
+          "url": "https://www.mehe.gov.lb/ar/services/أمانة-سر-لجنة-مزاولة-مهنة-الهندسة",
+          "title": {
+            "en": "MEHE — engineering practice",
+            "ar": "وزارة التربية — مزاولة مهنة الهندسة",
+            "fr": "Ministère de l’Éducation — autorisation d’exercer la profession d’ingénieur"
+          }
+        },
+        {
+          "url": "https://www.oea.org.lb/wp-content/uploads/2024/12/internal-law.pdf",
+          "title": {
+            "en": "Beirut engineers’ order — internal rules",
+            "ar": "نقابة مهندسي بيروت — النظام الداخلي",
+            "fr": "Ordre des ingénieurs de Beyrouth — règlement"
+          }
+        }
+      ],
+      "channel": {
+        "url": "https://www.mehe.gov.lb/ar/services/أمانة-سر-لجنة-مزاولة-مهنة-الهندسة",
+        "title": {
+          "en": "MEHE — engineering practice",
+          "ar": "وزارة التربية — مزاولة مهنة الهندسة",
+          "fr": "Ministère de l’Éducation — autorisation d’exercer la profession d’ingénieur"
+        }
+      },
+      "evidence": "partial"
+    }
+  },
+  "conditionalDocuments": {
+    "birth": [],
+    "family": [],
+    "marriage": [],
+    "passport": [
+      "guardian"
+    ],
+    "police": [
+      "authorization",
+      "residence",
+      "employer"
+    ],
+    "driving": [],
+    "civil": [],
+    "identity": [
+      "residence",
+      "loss"
+    ],
+    "university": [
+      "translation"
+    ],
+    "municipality": [
+      "property",
+      "plans",
+      "planning",
+      "valuation"
+    ],
+    "professional": [
+      "qualification",
+      "membership",
+      "practice"
+    ]
+  },
+  "stages": [
+    "Preparing documents",
+    "Ready to submit",
+    "Appointment",
+    "Submitted",
+    "Processing",
+    "Completed"
+  ],
+  "offices": [
+    {
+      "id": "demo-beirut",
+      "name": {
+        "en": "Beirut demo center",
+        "ar": "مركز بيروت الافتراضي",
+        "fr": "Centre fictif de Beyrouth"
+      }
+    },
+    {
+      "id": "demo-north",
+      "name": {
+        "en": "North Lebanon demo center",
+        "ar": "مركز الشمال الافتراضي",
+        "fr": "Centre fictif du Liban-Nord"
+      }
+    },
+    {
+      "id": "demo-south",
+      "name": {
+        "en": "South Lebanon demo center",
+        "ar": "مركز الجنوب الافتراضي",
+        "fr": "Centre fictif du Liban-Sud"
+      }
+    }
+  ]
+}

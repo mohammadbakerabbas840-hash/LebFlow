@@ -1,0 +1,32 @@
+name: Quality
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: mbstring, sqlite3, pdo_sqlite, gd
+          coverage: none
+      - run: npm ci
+      - run: composer install --no-interaction --prefer-dist
+        working-directory: LebFlow
+      - run: cp .env.example .env && php artisan key:generate --no-interaction
+        working-directory: LebFlow
+      - run: node scripts/publication-check.cjs
+      - run: npm audit --audit-level=moderate
+      - run: composer audit
+        working-directory: LebFlow
+      - run: npm test && npm run format:check && npm run build:laravel
+      - run: php artisan test --compact
+        working-directory: LebFlow
+      - run: npx playwright install --with-deps chrome
+      - run: npx playwright test
+      - run: npx playwright test --config playwright.backend.config.ts

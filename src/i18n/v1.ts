@@ -1,0 +1,211 @@
+import { L, useI18n } from './index';
+const copy = {
+  loading: L('Loading your workspace…', 'جارٍ تحميل مساحة العمل…', 'Chargement de votre espace…'),
+  error: L(
+    'Something went wrong. Your saved data has not been deleted.',
+    'حدث خطأ. لم تُحذف بياناتك المحفوظة.',
+    'Une erreur est survenue. Vos données enregistrées n’ont pas été supprimées.',
+  ),
+  retry: L('Try again', 'إعادة المحاولة', 'Réessayer'),
+  notFound: L(
+    'This page could not be found.',
+    'الصفحة المطلوبة غير موجودة.',
+    'Cette page est introuvable.',
+  ),
+  home: L('Back to services', 'العودة إلى الخدمات', 'Retour aux services'),
+  personalize: L('Build my checklist', 'إعداد قائمة المستندات لحالتي', 'Créer ma liste de pièces'),
+  questions: L(
+    'A few details about your request',
+    'بعض التفاصيل عن طلبك',
+    'Quelques précisions sur votre demande',
+  ),
+  questionHelp: L(
+    'Choose what applies. Uncertain answers keep the document in your checklist for confirmation.',
+    'حدّد ما ينطبق على حالتك. إذا لم تكن متأكداً، يبقى المستند في القائمة للتحقّق منه.',
+    'Indiquez ce qui vous concerne. En cas de doute, la pièce reste dans votre liste pour vérification.',
+  ),
+  applies: L('Applies to me', 'ينطبق على حالتي', 'Me concerne'),
+  no: L('Does not apply', 'لا ينطبق على حالتي', 'Ne me concerne pas'),
+  unsure: L('Not sure yet', 'لست متأكداً بعد', 'Je ne sais pas encore'),
+  generate: L('Generate my checklist', 'إنشاء قائمتي', 'Générer ma liste'),
+  personalized: L(
+    'Your personalized checklist is ready. Mark documents you have prepared before saving your case.',
+    'قائمتك جاهزة. حدّد المستندات التي جهّزتها قبل حفظ المعاملة.',
+    'Votre liste est prête. Cochez les pièces préparées avant d’enregistrer votre dossier.',
+  ),
+  editAnswers: L('Edit answers', 'تعديل الإجابات', 'Modifier les réponses'),
+  general: L('Use general checklist', 'استخدام القائمة العامة', 'Utiliser la liste générale'),
+  drivingScope: L(
+    'Choose first application or renewal above. Age, license category and medical eligibility must be confirmed with TMO; this draft does not certify eligibility.',
+    'اختر إصدار الرخصة للمرة الأولى أو تجديدها أعلاه. تحقّق لدى هيئة السير من شروط العمر وفئة الرخصة واللياقة الصحية؛ هذه القائمة لا تؤكد استيفاء الشروط.',
+    'Choisissez ci-dessus une première demande ou un renouvellement. Vérifiez auprès de la TMO les conditions d’âge, de catégorie et d’aptitude médicale ; cette liste ne certifie pas votre éligibilité.',
+  ),
+  steps: L('Steps to follow', 'خطوات إنجاز المعاملة', 'Étapes de la démarche'),
+  step1: L(
+    'Confirm your eligibility, document requirements and fees with the linked authority.',
+    'تحقّق لدى الجهة المختصة من شروط التقديم والمستندات والرسوم.',
+    'Vérifiez les conditions, les pièces et les frais auprès de l’administration indiquée.',
+  ),
+  step2: L(
+    'Prepare your checklist and contact the responsible office about submission or appointments.',
+    'جهّز مستنداتك وتواصل مع المكتب المختص لمعرفة طريقة التقديم والمواعيد.',
+    'Préparez vos pièces et contactez le service compétent pour le dépôt ou les rendez-vous.',
+  ),
+  step3: L(
+    'Submit through the official channel, keep your receipt, and update your personal timeline here.',
+    'قدّم الطلب عبر الجهة الرسمية، واحتفظ بالإيصال، ثم حدّث مراحل المتابعة هنا.',
+    'Déposez votre demande par la voie officielle, conservez le reçu et mettez à jour votre suivi ici.',
+  ),
+  estimatedTime: L(
+    'Estimated processing time',
+    'المدة التقديرية لإنجاز المعاملة',
+    'Délai de traitement indicatif',
+  ),
+  timeUnknown: L(
+    'Not verified for this route. Confirm the current processing time with the office.',
+    'لم يُتحقّق من المدة لهذه المعاملة. استفسر عن المدة الحالية لدى المكتب المختص.',
+    'Délai non vérifié pour cette démarche. Renseignez-vous auprès du service compétent.',
+  ),
+  readiness: L('Document readiness', 'جاهزية المستندات', 'Préparation des pièces'),
+  missing: L('Still to prepare', 'مستندات لم تُجهّز بعد', 'Pièces restant à préparer'),
+  allReady: L(
+    'All applicable documents are marked ready.',
+    'جميع المستندات التي تنطبق على حالتك محدّدة كجاهزة.',
+    'Toutes les pièces applicables sont indiquées comme prêtes.',
+  ),
+  timeline: L(
+    'Personal tracking progress',
+    'التقدّم في المتابعة الشخصية',
+    'Avancement du suivi personnel',
+  ),
+  next: L('Next action', 'الإجراء التالي', 'Prochaine action'),
+  continue: L(
+    'Review the next step with the responsible office.',
+    'راجع الخطوة التالية مع المكتب المختص.',
+    'Vérifiez la prochaine étape auprès du service compétent.',
+  ),
+  created: L('Case created', 'تاريخ إنشاء المعاملة', 'Dossier créé'),
+  expiry: L(
+    'Document expiration date (optional)',
+    'تاريخ انتهاء صلاحية المستند (اختياري)',
+    'Date d’expiration du document (facultatif)',
+  ),
+  updated: L('Case updated', 'تم تحديث المعاملة', 'Dossier mis à jour'),
+  saved: L('Changes saved', 'تم حفظ التغييرات', 'Modifications enregistrées'),
+  demoBooking: L(
+    'Try a demo appointment',
+    'تجربة حجز موعد تجريبي',
+    'Essayer un rendez-vous de démonstration',
+  ),
+  demoNote: L(
+    'SIMULATION — fictional branches and slots for testing. No authority is contacted and no real appointment is booked.',
+    'محاكاة — فروع ومواعيد افتراضية للتجربة. لا يتم التواصل مع أي جهة ولا يُحجز موعد حقيقي.',
+    'SIMULATION — centres et créneaux fictifs. Aucune administration n’est contactée et aucun rendez-vous réel n’est réservé.',
+  ),
+  branch: L('Demo branch', 'الفرع الافتراضي', 'Centre fictif'),
+  slot: L('Available demo time', 'الوقت المتاح للتجربة', 'Créneau de démonstration disponible'),
+  review: L('Review appointment', 'مراجعة تفاصيل الموعد', 'Vérifier le rendez-vous'),
+  confirm: L(
+    'Confirm demo appointment',
+    'تأكيد الموعد التجريبي',
+    'Confirmer le rendez-vous fictif',
+  ),
+  summary: L('Appointment summary', 'ملخّص الموعد', 'Récapitulatif du rendez-vous'),
+  demoConfirmed: L(
+    'Demo appointment saved — no official booking.',
+    'تم حفظ الموعد التجريبي — ليس حجزاً رسمياً.',
+    'Rendez-vous fictif enregistré — aucune réservation officielle.',
+  ),
+  reschedule: L('Reschedule demo', 'تغيير الموعد التجريبي', 'Replanifier la simulation'),
+  cancelBooking: L(
+    'Cancel demo appointment',
+    'إلغاء الموعد التجريبي',
+    'Annuler le rendez-vous fictif',
+  ),
+  confirmCancel: L('Confirm cancellation', 'تأكيد الإلغاء', 'Confirmer l’annulation'),
+  keep: L('Keep appointment', 'الإبقاء على الموعد', 'Conserver le rendez-vous'),
+  cancelled: L(
+    'Demo appointment cancelled',
+    'تم إلغاء الموعد التجريبي',
+    'Rendez-vous fictif annulé',
+  ),
+  noSlots: L(
+    'No demo slots on this date. Choose another day.',
+    'لا توجد مواعيد تجريبية في هذا التاريخ. اختر يوماً آخر.',
+    'Aucun créneau fictif à cette date. Choisissez un autre jour.',
+  ),
+  back: L('Back', 'رجوع', 'Retour'),
+  preferences: L('Your preferences', 'تفضيلاتك', 'Vos préférences'),
+  bookmarks: L('Saved services', 'الخدمات المحفوظة', 'Services enregistrés'),
+  saveService: L('Save service', 'حفظ الخدمة', 'Enregistrer ce service'),
+  unsave: L('Remove saved service', 'إزالة الخدمة من المحفوظات', 'Retirer des favoris'),
+  noBookmarks: L(
+    'Save services from their details to find them here.',
+    'احفظ الخدمات من صفحات تفاصيلها لتجدها هنا.',
+    'Enregistrez des services depuis leur fiche pour les retrouver ici.',
+  ),
+  notificationPrefs: L(
+    'Notification preferences',
+    'تفضيلات الإشعارات',
+    'Préférences de notification',
+  ),
+  appointmentAlerts: L('Appointment reminders', 'تذكيرات المواعيد', 'Rappels de rendez-vous'),
+  expiryAlerts: L(
+    'Document expiration reminders',
+    'تذكيرات انتهاء صلاحية المستندات',
+    'Rappels d’expiration des documents',
+  ),
+  incompleteAlerts: L(
+    'Incomplete checklists',
+    'قوائم المستندات غير المكتملة',
+    'Listes de pièces incomplètes',
+  ),
+  updateAlerts: L(
+    'Case update notices',
+    'إشعارات تحديث المعاملات',
+    'Notifications de mise à jour des dossiers',
+  ),
+  security: L('Security & privacy', 'الأمان والخصوصية', 'Sécurité et confidentialité'),
+  securityNote: L(
+    'Demo session only. Password changes, two-factor authentication and identity verification require the future backend. Identity files remain in memory; cases and preferences are local to this browser.',
+    'جلسة تجريبية فقط. تغيير كلمة المرور والمصادقة الثنائية والتحقّق من الهوية تحتاج إلى النظام الخلفي مستقبلاً. تبقى ملفات الهوية في الذاكرة، وتُحفظ المعاملات والتفضيلات في هذا المتصفح.',
+    'Session de démonstration. La modification du mot de passe, la double authentification et la vérification d’identité nécessitent le futur serveur. Les justificatifs restent en mémoire ; dossiers et préférences sont propres à ce navigateur.',
+  ),
+  editProfile: L(
+    'Edit personal information',
+    'تعديل المعلومات الشخصية',
+    'Modifier les informations personnelles',
+  ),
+  saveProfile: L('Save profile', 'حفظ الملف الشخصي', 'Enregistrer le profil'),
+  notifications: L('Notifications', 'الإشعارات', 'Notifications'),
+  unread: L('Unread', 'غير مقروءة', 'Non lues'),
+  allNotifications: L('All notifications', 'كل الإشعارات', 'Toutes les notifications'),
+  markRead: L('Mark as read', 'تحديد كمقروء', 'Marquer comme lu'),
+  markAll: L('Mark all as read', 'تحديد الكل كمقروء', 'Tout marquer comme lu'),
+  noNotifications: L('You’re all caught up.', 'لا توجد إشعارات جديدة.', 'Vous êtes à jour.'),
+  expiryNotice: L(
+    'Check your document expiration',
+    'راجع تاريخ انتهاء صلاحية المستند',
+    'Vérifiez l’expiration de votre document',
+  ),
+  appointmentNotice: L(
+    'Review your upcoming appointment',
+    'راجع موعدك القادم',
+    'Vérifiez votre prochain rendez-vous',
+  ),
+  incompleteNotice: L(
+    'Finish preparing your documents',
+    'أكمل تجهيز مستنداتك',
+    'Terminez la préparation de vos pièces',
+  ),
+  demoMode: L(
+    'Frontend v1.0 · Demo workspace',
+    'الواجهة ١٫٠ · مساحة تجريبية',
+    'Interface v1.0 · Espace de démonstration',
+  ),
+};
+export type V1Key = keyof typeof copy;
+export function useV1() {
+  const { locale } = useI18n();
+  return (key: V1Key) => copy[key][locale];
+}

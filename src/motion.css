@@ -1,0 +1,13 @@
+.date-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-block:12px}
+.date-suggestions button{border:1px solid #ced8e5;border-radius:10px;background:#fff;color:#17365d;padding:10px 12px;min-height:44px;font:inherit;cursor:pointer}
+.date-suggestions button[aria-pressed=true]{background:#17365d;color:#fff;border-color:#17365d}
+@media(prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .panel,.service-card,.case-card,.ai-answer,.appointment-picker{animation:lebflow-appear .24s ease-out both}
+  button,a,input,select,textarea{transition:background-color .16s ease,color .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease}
+  button:active:not(:disabled){transform:translateY(1px)}
+  .date-suggestions button:hover:not(:disabled){box-shadow:0 3px 12px #17365d1c;transform:translateY(-2px)}
+  .modal{animation:lebflow-appear .2s ease-out both}
+}
+@keyframes lebflow-appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

@@ -1,0 +1,13 @@
+.wizard-start { display: flex; justify-content: space-between; gap: 12px; width: 100%; margin: 20px 0; padding: 15px 18px; border: 1px solid #cad7e6; border-radius: 12px; background: #edf3fb; color: #142e51; font: inherit; font-weight: 700; text-align: start; cursor: pointer; }
+.passport-wizard { margin: 22px 0; padding: 22px; border: 1px solid #cad7e6; border-radius: 16px; background: #f3f7fc; color: #142e51; }
+.passport-wizard h3 { margin: 0 0 10px; }
+.passport-wizard p { font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.wizard-questions { display: grid; gap: 16px; margin: 20px 0; }
+.wizard-questions label { display: grid; gap: 8px; font-size: 13px; font-weight: 650; }
+.wizard-questions select { width: 100%; min-width: 0; padding: 12px; border: 1px solid #bccbdc; border-radius: 8px; background: white; color: #142e51; font: inherit; }
+.wizard-questions select:disabled { opacity: 1; background: #e9eef5; }
+.wizard-result { border-inline-start: 3px solid #3f729c; padding-inline-start: 14px; }
+.wizard-source a { color: #204f86; text-underline-offset: 3px; }
+.wizard-start:focus-visible, .wizard-questions select:focus-visible { outline: 3px solid #4c86b6; outline-offset: 3px; }
+.request-action button:disabled { opacity: .5; cursor: not-allowed; }
+@media (max-width: 480px) { .passport-wizard { padding: 15px; } }
