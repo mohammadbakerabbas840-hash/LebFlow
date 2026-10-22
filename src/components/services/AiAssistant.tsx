@@ -1,12 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import { L, useI18n } from '../../i18n';
 import { apiRequest, ApiError } from '../../services/backend';
 import { useAuth } from '../../features/auth/AuthProvider';
 import { services } from '../../data/services';
 import { getGuide } from '../../data/serviceGuides';
+import './ai-assistant.css';
 
 const copy = {
   title: L('Ask LebFlow', 'اسأل LebFlow', 'Demander à LebFlow'),
+  welcome: L(
+    'What would you like to prepare?',
+    'ما المعاملة التي تريد التحضير لها؟',
+    'Quelle démarche souhaitez-vous préparer ?',
+  ),
+  answer: L('LebFlow’s answer', 'إجابة LebFlow', 'Réponse de LebFlow'),
+  openPage: L(
+    'Open the AI assistant page',
+    'فتح صفحة المساعد الذكي',
+    'Ouvrir la page de l’assistant IA',
+  ),
+  suggestions: L('Try a question', 'جرّب أحد هذه الأسئلة', 'Essayez une question'),
   research: L(
     'Research official sources (may take up to 75 seconds)',
     'البحث في المصادر الرسمية (قد يستغرق ٧٥ ثانية)',
@@ -86,7 +100,44 @@ type Reply = {
     content: { scope?: string; sourceNote?: string };
   }[];
 };
-export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSignIn: () => void }) {
+const examples = [
+  {
+    service: 'passport',
+    question: L(
+      'What do I need to renew my passport?',
+      'ما المستندات المطلوبة لتجديد جواز سفري؟',
+      'Quels documents faut-il pour renouveler mon passeport ?',
+    ),
+  },
+  {
+    service: 'identity',
+    question: L(
+      'How do I apply for my child’s first ID?',
+      'كيف أقدّم طلب بطاقة هوية لطفلي للمرة الأولى؟',
+      'Comment demander la première carte d’identité de mon enfant ?',
+    ),
+  },
+  {
+    service: 'civil',
+    question: L(
+      'Where can I request an individual civil-status extract?',
+      'أين يمكنني طلب إخراج قيد فردي؟',
+      'Où demander un extrait individuel d’état civil ?',
+    ),
+  },
+];
+
+export function AiAssistant({
+  serviceId,
+  onSignIn,
+  onOpenPage,
+  presentation = 'embedded',
+}: {
+  serviceId?: string;
+  onSignIn: () => void;
+  onOpenPage?: () => void;
+  presentation?: 'page' | 'embedded';
+}) {
   const { locale } = useI18n();
   const { user } = useAuth();
   const t = (key: keyof typeof copy) => copy[key][locale];
@@ -98,10 +149,54 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
   const [error, setError] = useState('');
   const [history, setHistory] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
   const [feedback, setFeedback] = useState(false);
+  const [lastQuestion, setLastQuestion] = useState('');
+  const input = useRef<HTMLTextAreaElement>(null);
+  const answer = useRef<HTMLElement>(null);
+  const isPage = presentation === 'page';
+  const Container = isPage ? 'section' : 'details';
+  useEffect(() => {
+    if (isPage && reply) answer.current?.scrollIntoView({ block: 'start' });
+  }, [isPage, reply]);
   return (
-    <details className="ai-assistant panel" key={locale}>
-      <summary>{t('title')}</summary>
+    <Container className={`ai-assistant panel ${isPage ? 'ai-assistant--page' : ''}`} key={locale}>
+      {isPage ? (
+        <div className="assistant-intro">
+          <span className="service-icon">
+            <MessageCircle size={24} aria-hidden="true" />
+          </span>
+          <h2>{t('welcome')}</h2>
+        </div>
+      ) : (
+        <summary>{t('title')}</summary>
+      )}
+      {onOpenPage && (
+        <button type="button" className="assistant-open-page" onClick={onOpenPage}>
+          {t('openPage')} <ArrowUpRight size={16} aria-hidden="true" />
+        </button>
+      )}
       <p className="info-note">{t('notice')}</p>
+      {isPage && user && !history.length && !serviceId && (
+        <section className="assistant-examples" aria-label={t('suggestions')}>
+          <h3>{t('suggestions')}</h3>
+          <div>
+            {examples.map((example) => (
+              <button
+                type="button"
+                key={example.service}
+                disabled={busy}
+                onClick={() => {
+                  setService(example.service);
+                  setMessage(example.question[locale]);
+                  setError('');
+                  input.current?.focus();
+                }}
+              >
+                {example.question[locale]}
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
       {!user ? (
         <button type="button" className="primary" onClick={onSignIn}>
           {t('login')}
@@ -126,6 +221,7 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
                 }),
               });
               setReply(result);
+              setLastQuestion(message.trim());
               setFeedback(false);
               setHistory((previous) =>
                 [
@@ -159,6 +255,8 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
                 setService(e.target.value);
                 setHistory([]);
                 setReply(null);
+                setError('');
+                setFeedback(false);
               }}
             >
               <option value="">{t('automatic')}</option>
@@ -172,6 +270,7 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
           <label className="form-field">
             {t('question')}
             <textarea
+              ref={input}
               required
               minLength={3}
               maxLength={2000}
@@ -216,6 +315,8 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
               setHistory([]);
               setReply(null);
               setFeedback(false);
+              setMessage('');
+              setError('');
             }}
           >
             {L('Clear conversation', 'مسح المحادثة', 'Effacer la conversation')[locale]}
@@ -228,48 +329,12 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
         </p>
       )}
       {reply && (
-        <section aria-live="polite" className="ai-answer">
-          <p className="small-note">
-            {
-              L(
-                'Reporting saves your last question and this answer for administrator review.',
-                'يحفظ الإبلاغ سؤالك الأخير وهذه الإجابة لمراجعة المسؤول.',
-                'Le signalement enregistre votre dernière question et cette réponse pour vérification par un administrateur.',
-              )[locale]
-            }
-          </p>
-          <button
-            disabled={busy || feedback}
-            onClick={async () => {
-              try {
-                await apiRequest('ai/feedback', {
-                  method: 'POST',
-                  body: JSON.stringify({
-                    serviceId: service || null,
-                    category: 'incorrect',
-                    comment:
-                      (history
-                        .filter((h) => h.role === 'user')
-                        .at(-1)
-                        ?.content.slice(0, 900) ?? '') +
-                      '\n' +
-                      reply.answer.slice(0, 1000),
-                  }),
-                });
-                setFeedback(true);
-              } catch {
-                setError(t('error'));
-              }
-            }}
-          >
-            {
-              L(
-                feedback ? 'Report received' : 'Report an incorrect answer',
-                feedback ? 'تم استلام البلاغ' : 'الإبلاغ عن إجابة غير صحيحة',
-                feedback ? 'Signalement reçu' : 'Signaler une réponse incorrecte',
-              )[locale]
-            }
-          </button>
+        <section ref={answer} aria-live="polite" className="ai-answer">
+          <div className="ai-question">
+            <strong>{t('question')}</strong>
+            <p>{lastQuestion}</p>
+          </div>
+          <h3>{t('answer')}</h3>
           <p style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
             <ResearchText reply={reply} />
           </p>
@@ -292,9 +357,52 @@ export function AiAssistant({ serviceId, onSignIn }: { serviceId?: string; onSig
               </ul>
             </article>
           ))}
+          <div className="assistant-feedback">
+            <p className="small-note">
+              {
+                L(
+                  'Reporting saves your last question and this answer for administrator review.',
+                  'يحفظ الإبلاغ سؤالك الأخير وهذه الإجابة لمراجعة المسؤول.',
+                  'Le signalement enregistre votre dernière question et cette réponse pour vérification par un administrateur.',
+                )[locale]
+              }
+            </p>
+            <button
+              disabled={busy || feedback}
+              onClick={async () => {
+                try {
+                  await apiRequest('ai/feedback', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                      serviceId: service || null,
+                      category: 'incorrect',
+                      comment:
+                        (history
+                          .filter((h) => h.role === 'user')
+                          .at(-1)
+                          ?.content.slice(0, 900) ?? '') +
+                        '\n' +
+                        reply.answer.slice(0, 1000),
+                    }),
+                  });
+                  setFeedback(true);
+                } catch {
+                  setError(t('error'));
+                }
+              }}
+            >
+              {
+                L(
+                  feedback ? 'Report received' : 'Report an incorrect answer',
+                  feedback ? 'تم استلام البلاغ' : 'الإبلاغ عن إجابة غير صحيحة',
+                  feedback ? 'Signalement reçu' : 'Signaler une réponse incorrecte',
+                )[locale]
+              }
+            </button>
+          </div>
         </section>
       )}
-    </details>
+    </Container>
   );
 }
 

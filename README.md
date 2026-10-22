@@ -2,7 +2,24 @@
 
 LebFlow helps people prepare Lebanese administrative requests in Arabic, English and French. It combines a navy-and-white React/TypeScript interface, a Laravel API, private personal cases and a source-backed RAG assistant.
 
-**Independent preparation platform:** LebFlow does not issue documents, certify identity, or book official government appointments. Appointment slots are demonstrations; case progress is self-reported. This is a locally tested release candidate, not a deployed public service. See [verification results](docs/VERIFICATION.md), [security and deployment requirements](SECURITY.md), and the [portfolio draft](docs/SHARING.md).
+**Independent preparation platform:** LebFlow does not issue documents, certify identity, or book official government appointments. Appointment slots are demonstrations; case progress is self-reported. The public frontend demo is separate from the Laravel application, which still requires production deployment. See [verification results](docs/VERIFICATION.md), [security and deployment requirements](SECURITY.md), and the [portfolio draft](docs/SHARING.md).
+
+## Frontend demo and free hosting
+
+[Open the frontend demo](https://mohammadbakerabbas840-hash.github.io/LebFlow/) · [AI Assistant page](https://mohammadbakerabbas840-hash.github.io/LebFlow/#/assistant)
+
+GitHub Pages hosts the React demonstration for free from this public repository. It includes multilingual service guides, preparation checklists and browser-local case tracking. Demo profiles and uploaded files stay in memory. Real accounts, live AI chat, private document processing and server notifications require the Laravel backend; they are not provided by GitHub Pages. The assistant page explains this in each language.
+
+The **Deploy frontend demo** workflow tests and publishes the frontend on pushes to `main`. The repository's **Settings → Pages → Source** must be **GitHub Actions**. No custom domain is needed. To check the same static build locally:
+
+```sh
+npm ci
+npm run build:pages
+npm run test:pages
+npm run preview -- --mode pages
+```
+
+Open **http://127.0.0.1:4173/LebFlow/**. Hash links such as `#/assistant` support refresh and direct sharing. The Pages build uses `/LebFlow/` as its asset base; the Laravel build continues to use `/`. Never put backend provider keys in frontend environment variables or the Pages workflow.
 
 ## What is implemented
 
@@ -14,7 +31,7 @@ LebFlow helps people prepare Lebanese administrative requests in Arabic, English
 - Account settings, private upload replacement/deletion, encrypted document storage, scan quarantine and administrator review. OCR checks consistency and never certifies authenticity.
 - Password recovery, signed email-verification links, optional authenticator MFA with single-use recovery codes, active-session revocation and opt-in email reminder jobs. Administrators must use MFA. Delivery still requires an outbound email provider.
 - Editorial drafts in all three languages, a second administrator's approval, version history, case-change notifications and queued public-knowledge reindexing. Published editorial versions survive catalogue reseeding.
-- Qdrant retrieval with current-content checks, cited answers, bounded follow-up context, optional official-source research and answer reporting for administrator review.
+- A dedicated AI Assistant page in the sidebar, with multilingual example questions, service selection and links from service details. Connected mode includes Qdrant retrieval with current-content checks, cited answers, bounded follow-up context, optional official-source research and answer reporting for administrator review.
 
 ## Run through Laravel
 
@@ -77,7 +94,7 @@ The release migration is forward-only to preserve family case history. Take and 
 
 ## RAG assistant
 
-Sign in and open **Ask LebFlow**. Up to six previous messages are supplied as untrusted follow-up context; chat stays in browser memory. Questions and that context go to the configured AI provider. Do not enter private identity information. Reporting an answer explicitly stores the reported question/answer excerpt for administrator review; this is separate from the public vector index.
+In the connected Laravel application, open **AI assistant** from the sidebar and sign in. Service details also link to the full page with that service selected. Up to six previous messages are supplied as untrusted follow-up context; chat stays in browser memory. Questions and that context go to the configured AI provider. Do not enter private identity information. Reporting an answer explicitly stores the reported question/answer excerpt for administrator review; this is separate from the public vector index.
 
 Retrieval follows `question embedding → Qdrant → current SQL guide/fingerprint validation → structured answer and citations`. Selecting a service reads its current guide directly. Keyword retrieval is available during vector outages. Stale or deleted guide sections cannot supply evidence. Only public service fields are indexed; accounts, family records, cases and identity uploads are excluded.
 
@@ -102,7 +119,7 @@ The API prefix is `/api/v1`. Obtain `/sanctum/csrf-cookie` before mutations. Pub
 ```text
 React/TypeScript
   components/  shared layout, accounts, services, cases, appointments
-  pages/       explore, cases, appointments, reminders, account
+  pages/       explore, AI assistant, cases, appointments, reminders, account
   features/    auth, preparation wizards, case and appointment flows
   services/    API and demo adapters
   hooks/       resource loading, mutations, cases and local demo storage
@@ -134,6 +151,6 @@ php artisan release:check
 
 Connected Playwright tests use an isolated SQLite database and synthetic uploads on port 8010. Provider responses are mocked in automated browser tests. Development port 8000 is left alone. Browser coverage is Chrome, including English/Arabic/French at 375, 768 and 1440 pixels; it is not universal browser certification.
 
-Tesseract and ClamAV executables are available locally, but OCR language data and antivirus signatures are still missing. Live scanner verification therefore fails and uploads remain quarantined. Hosting/domain/HTTPS, outbound email, Docker staging, production capacity testing, backup restoration and an independent security review remain launch requirements. No GitHub push, LinkedIn post or public deployment has been performed.
+Tesseract and ClamAV executables are available locally, but OCR language data and antivirus signatures are still missing. Live scanner verification therefore fails and uploads remain quarantined. Backend hosting/HTTPS, outbound email, Docker staging, production capacity testing, backup restoration and an independent security review remain launch requirements. Publishing the React demo and source on GitHub does not complete those backend requirements.
 
 See [docs/VERIFICATION.md](docs/VERIFICATION.md) for actual test results and limitations and [docs/requirements-research.md](docs/requirements-research.md) for the earlier source review. Source review dates are per-guide and are not automatically refreshed by builds. Unknown current fees remain unknown.

@@ -5,6 +5,13 @@ export const L = (en: string, ar: string, fr: string): Localized => ({ en, ar, f
 export const localeTags = { en: 'en-LB', ar: 'ar-LB', fr: 'fr-LB' };
 export const messages = {
   explore: L('Explore services', 'استكشف الخدمات', 'Explorer les services'),
+  assistant: L('AI assistant', 'المساعد الذكي', 'Assistant IA'),
+  assistantHeading: L('Ask LebFlow', 'اسأل LebFlow', 'Demander à LebFlow'),
+  assistantSubtitle: L(
+    'Get guidance on your documents and next steps, with sources you can check.',
+    'احصل على إرشادات حول مستنداتك وخطواتك التالية، مع مصادر يمكنك مراجعتها.',
+    'Obtenez des conseils sur vos documents et vos démarches, avec des sources à consulter.',
+  ),
   cases: L('My cases', 'معاملاتي', 'Mes dossiers'),
   reminders: L('Reminders', 'التذكيرات', 'Rappels'),
   appointments: L('Appointments', 'المواعيد', 'Rendez-vous'),

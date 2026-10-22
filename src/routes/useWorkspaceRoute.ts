@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import type { Page } from '../types/navigation';
-const pages: Page[] = ['explore', 'cases', 'appointments', 'reminders', 'account'];
+const pages: Page[] = ['explore', 'assistant', 'cases', 'appointments', 'reminders', 'account'];
 function readRoute() {
+  const base = import.meta.env.BASE_URL;
+  const pathname = location.pathname.startsWith(base)
+    ? location.pathname.slice(base.length)
+    : location.pathname.replace(/^\//, '');
   const route =
     location.hash.replace(/^#\/?/, '').split('?')[0] ||
-    (location.pathname === '/' ? 'explore' : location.pathname.slice(1));
+    (!pathname || pathname === 'index.html' ? 'explore' : pathname);
   if (route === 'services') return { page: 'explore' as const, selected: null };
   if (route.startsWith('services/')) return { page: 'explore' as const, selected: route.slice(9) };
   const parts = route.split('/');
@@ -29,6 +33,8 @@ export function useWorkspaceRoute() {
   return {
     ...route,
     caseId: new URLSearchParams(location.hash.split('?')[1]).get('case'),
+    assistantService: new URLSearchParams(location.hash.split('?')[1]).get('service'),
+    ask: (serviceId: string) => go(`assistant?service=${encodeURIComponent(serviceId)}`),
     navigate: (page: Page) => go(page),
     select: (id: string | null, caseId?: string) =>
       go(

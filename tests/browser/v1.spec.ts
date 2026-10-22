@@ -128,7 +128,7 @@ test('direct routes, missing pages, history navigation and keyboard focus work',
   await page.getByRole('button', { name: 'Back to services' }).click();
   await page.locator('.service-card').first().click();
   await expect(page).toHaveURL(/services\/police/);
-  await expect(page.getByRole('heading', { name: 'Judicial record', exact: true })).toBeVisible();
+  await expect(page.getByRole('dialog').getByRole('heading', { name: 'Judicial record', exact: true })).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.goBack();
@@ -150,7 +150,7 @@ for (const width of [375, 768, 1440]) for (const locale of ['en','ar','fr']) {
       localStorage.setItem('lebflow-language', language);
       localStorage.setItem('lebflow-cases', JSON.stringify([{ id:'sample',serviceId:'passport',created:'2026-09-13T12:00:00Z',stage:'Processing',kind:'renewal',documents:['form'],due:'2099-10-02',expiresOn:'2020-01-01',appointment:{date:'2099-10-03',time:'12:00',mode:'demo',branchId:'demo-beirut',reference:'DEMO-12345678'} }]));
     }, locale);
-    for (const route of ['explore','cases','appointments','reminders','account','missing']) {
+    for (const route of ['explore','assistant','cases','appointments','reminders','account','missing']) {
       await page.goto(`/#/${route}`);
       await expect(page.locator('html')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
       await expect(page.locator('.loading-state')).toHaveCount(0);

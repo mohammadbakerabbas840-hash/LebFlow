@@ -34,10 +34,12 @@ import { CasesPage } from '../../pages/CasesPage';
 import { AppointmentsPage } from '../../pages/AppointmentsPage';
 import { RemindersPage } from '../../pages/RemindersPage';
 import { AccountPage } from '../../pages/AccountPage';
+import { AiAssistantPage } from '../../pages/AiAssistantPage';
 import { AiAssistant } from '../services/AiAssistant';
 
 const titles: Record<Page, MessageKey> = {
   explore: 'heading',
+  assistant: 'assistantHeading',
   cases: 'casesHeading',
   appointments: 'appointmentHeading',
   reminders: 'reminderHeading',
@@ -45,6 +47,7 @@ const titles: Record<Page, MessageKey> = {
 };
 const subtitles: Record<Page, MessageKey> = {
   explore: 'subtitle',
+  assistant: 'assistantSubtitle',
   cases: 'casesSubtitle',
   appointments: 'appointmentSubtitle',
   reminders: 'reminderSubtitle',
@@ -162,6 +165,7 @@ export function Workspace() {
   function navigate(next: Page) {
     route.navigate(next);
     setMobileMenu(false);
+    window.scrollTo({ top: 0 });
   }
   const pageProps = { onSelect: setSelected, navigate };
 
@@ -259,8 +263,12 @@ export function Workspace() {
               onSelect={setSelected}
             />
           )}
-          {apiMode && !selected && (
-            <AiAssistant key={`${user?.id}-${locale}`} onSignIn={() => navigate('account')} />
+          {page === 'assistant' && !notFound && (
+            <AiAssistantPage
+              key={`${user?.id}-${locale}-${route.assistantService ?? ''}`}
+              serviceId={route.assistantService ?? undefined}
+              navigate={navigate}
+            />
           )}
           <Footer />
         </main>
@@ -354,6 +362,10 @@ export function Workspace() {
                     key={`${selected}-${locale}`}
                     serviceId={selected}
                     onSignIn={() => navigate('account')}
+                    onOpenPage={() => {
+                      route.ask(selected);
+                      window.scrollTo({ top: 0 });
+                    }}
                   />
                 )}
               </>

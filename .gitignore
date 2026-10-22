@@ -4,6 +4,7 @@ dist
 *.tsbuildinfo
 test-results
 test-results-backend
+test-results-pages
 playwright-report
 artifacts/screenshots
 .runtime/

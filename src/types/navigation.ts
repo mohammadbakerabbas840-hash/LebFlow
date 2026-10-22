@@ -1,1 +1,1 @@
-export type Page = 'explore' | 'cases' | 'appointments' | 'reminders' | 'account';
+export type Page = 'explore' | 'assistant' | 'cases' | 'appointments' | 'reminders' | 'account';

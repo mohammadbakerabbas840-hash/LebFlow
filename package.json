@@ -8,6 +8,8 @@
     "backend:dev": "node scripts/serve-backend.cjs",
     "dev": "vite --host 127.0.0.1",
     "build": "tsc -b && vite build",
+    "build:pages": "tsc -b && vite build --mode pages",
+    "test:pages": "playwright test --config playwright.pages.config.ts",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/service-details.test.cjs",
     "test:browser": "playwright test",

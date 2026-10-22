@@ -7,6 +7,7 @@ import {
   TreePine,
   CalendarDays,
   UserRound,
+  MessageCircle,
 } from 'lucide-react';
 import { useI18n } from '../../i18n';
 import type { Page } from '../../types/navigation';
@@ -49,6 +50,7 @@ export function Sidebar({
         {(
           [
             { id: 'explore', icon: LayoutGrid },
+            { id: 'assistant', icon: MessageCircle },
             { id: 'cases', icon: FolderOpen },
             { id: 'appointments', icon: CalendarDays },
             { id: 'reminders', icon: Bell },
