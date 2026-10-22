@@ -24,6 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node scripts/publication-check.cjs
+      - run: npm audit --audit-level=moderate
       - run: npm test
       - run: npm run format:check
       - run: npm run build:pages
