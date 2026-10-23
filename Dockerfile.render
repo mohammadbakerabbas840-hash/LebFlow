@@ -1,4 +1,5 @@
 
+# Stage 1: Build frontend
 FROM node:22-bookworm-slim AS frontend
 
 WORKDIR /build
@@ -10,25 +11,45 @@ COPY . .
 RUN npm run build:api
 
 
-FROM php:8.5-fpm-bookworm
+# Stage 2: Laravel + Nginx
+FROM php:8.4-fpm-bookworm
 
-RUN apt-get update && apt-get install -y \
-    nginx supervisor git unzip \
-    libpq-dev libzip-dev libicu-dev libonig-dev \
-    && docker-php-ext-install \
-    pdo_pgsql zip intl mbstring opcache \
+# Install system dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       nginx \
+       supervisor \
+       git \
+       unzip \
+       libpq-dev \
+       libzip-dev \
+       libicu-dev \
+       libonig-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Install PHP extensions
+RUN docker-php-ext-install -j1 \
+    pdo_pgsql \
+    zip \
+    intl \
+    mbstring \
+    opcache
+
+# Install Composer
+COPY --from=composer:2 \
+    /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
+# Copy Laravel application
 COPY LebFlow/ ./
 
+# Install Laravel dependencies
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
     --no-interaction \
+    --no-progress \
     && mkdir -p \
        storage/framework/cache \
        storage/framework/sessions \
@@ -38,13 +59,20 @@ RUN composer install \
     && chown -R www-data:www-data \
        storage bootstrap/cache
 
+# Copy compiled frontend assets
 COPY --from=frontend /build/dist/ /var/www/html/public/
 
+# Remove default Nginx configurations
 RUN rm -f \
     /etc/nginx/conf.d/default.conf \
     /etc/nginx/sites-enabled/default
 
+# Configure Nginx
 RUN printf '%s\n' \
+    'map $http_x_forwarded_proto $fastcgi_https {' \
+    '    default off;' \
+    '    https on;' \
+    '}' \
     'server {' \
     '    listen 8080;' \
     '    server_tokens off;' \
@@ -60,15 +88,17 @@ RUN printf '%s\n' \
     '        include fastcgi_params;' \
     '        fastcgi_pass 127.0.0.1:9000;' \
     '        fastcgi_param SCRIPT_FILENAME /var/www/html/public/index.php;' \
-    '        fastcgi_param HTTPS $http_x_forwarded_proto;' \
+    '        fastcgi_param HTTPS $fastcgi_https;' \
     '        fastcgi_read_timeout 95s;' \
     '    }' \
     '    location ~ /\. { deny all; }' \
     '    location ~ \.php$ { return 404; }' \
     '}' > /etc/nginx/conf.d/default.conf
 
+# Verify Nginx configuration
 RUN nginx -t
 
+# Configure Supervisor
 RUN printf '%s\n' \
     '[supervisord]' \
     'nodaemon=true' \
