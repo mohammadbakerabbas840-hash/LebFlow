@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 for (const locale of ['en', 'ar', 'fr'] as const) {
-  test(`static ${locale} build works under the repository URL without a backend`, async ({
+  test(`static ${locale} build supports the hosting URL without a backend`, async ({
     page,
+    baseURL,
   }) => {
     const errors: string[] = [];
     const apiCalls: string[] = [];
@@ -19,7 +20,8 @@ for (const locale of ['en', 'ar', 'fr'] as const) {
     await expect(page.locator('.service-card')).toHaveCount(11);
     await expect(page.locator('html')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
     const script = page.locator('script[type=module]');
-    await expect(script).toHaveAttribute('src', /^\/LebFlow\/assets\//);
+    const basePath = new URL(baseURL!).pathname;
+    expect((await script.getAttribute('src'))?.startsWith(`${basePath}assets/`)).toBe(true);
     await page
       .locator('nav')
       .getByRole('button', {
@@ -27,7 +29,7 @@ for (const locale of ['en', 'ar', 'fr'] as const) {
         exact: true,
       })
       .click();
-    await expect(page).toHaveURL(/\/LebFlow\/#\/assistant$/);
+    await expect(page).toHaveURL(new URL('#/assistant', baseURL).toString());
     await expect(page.locator('.assistant-page .empty-state')).toBeVisible();
     await page.reload();
     await expect(page.locator('.assistant-page .empty-state')).toBeVisible();

@@ -1,0 +1,14 @@
+# Upload only the React source and its build configuration.
+/*
+!src
+!index.html
+!package.json
+!package-lock.json
+!tsconfig.json
+!vite.config.ts
+!vercel.json
+**/.env
+**/.env.*
+**/*.sqlite*
+**/*.pem
+**/*.key

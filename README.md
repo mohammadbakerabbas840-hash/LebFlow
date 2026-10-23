@@ -8,7 +8,24 @@ LebFlow helps people prepare Lebanese administrative requests in Arabic, English
 
 [Open the frontend demo](https://mohammadbakerabbas840-hash.github.io/LebFlow/) · [AI Assistant page](https://mohammadbakerabbas840-hash.github.io/LebFlow/#/assistant)
 
-GitHub Pages hosts the React demonstration for free from this public repository. It includes multilingual service guides, preparation checklists and browser-local case tracking. Demo profiles and uploaded files stay in memory. Real accounts, live AI chat, private document processing and server notifications require the Laravel backend; they are not provided by GitHub Pages. The assistant page explains this in each language.
+The React demonstration includes multilingual service guides, preparation checklists and browser-local case tracking. Demo profiles and uploaded files stay in memory. Real accounts, live AI chat, private document processing and server notifications require the Laravel backend; they are not provided by the static deployment. The assistant page explains this in each language.
+
+### Vercel
+
+Import this GitHub repository into Vercel using the repository root (`./`), the **Vite** preset and a free **Hobby** account for the personal portfolio demo. `vercel.json` configures `npm ci`, `npm run build`, the `dist` output directory and SPA routing. No environment variables are needed for the demo. Do not select the nested Laravel folder or use `build:api` for this deployment.
+
+The CLI upload allowlist in `.vercelignore` includes only the React source and build configuration. Backend files, local uploads and environment files are excluded. After connecting the GitHub repository in Vercel, pushes to `main` deploy automatically. Test the root-URL build locally with:
+
+```sh
+npm run build
+npm run test:vercel
+```
+
+For deployment from this checkout, sign in using `npx vercel login`, then run `npx vercel --prod`. Keep the Vercel project on the Hobby plan to avoid a paid subscription. The public Vercel URL is assigned after account sign-in and deployment.
+
+### GitHub Pages
+
+The existing GitHub Pages demo remains available at the link above.
 
 The **Deploy frontend demo** workflow tests and publishes the frontend on pushes to `main`. The repository's **Settings → Pages → Source** must be **GitHub Actions**. No custom domain is needed. To check the same static build locally:
 

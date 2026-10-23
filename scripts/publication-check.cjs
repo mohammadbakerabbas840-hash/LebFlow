@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
-const excluded = new Set(['node_modules', 'vendor', '.git', '.runtime', '.codex', '.agents', 'storage', 'dist', 'my-laravel-app', 'test-results', 'test-results-backend', 'test-results-pages', 'playwright-report', 'artifacts']);
+const excluded = new Set(['node_modules', 'vendor', '.git', '.runtime', '.codex', '.agents', 'storage', 'dist', '.vercel', 'my-laravel-app', 'test-results', 'test-results-backend', 'test-results-pages', 'test-results-vercel', 'playwright-report', 'artifacts']);
 const findings = [];
 let count = 0;
 function walk(directory) {

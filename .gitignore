@@ -5,6 +5,8 @@ dist
 test-results
 test-results-backend
 test-results-pages
+test-results-vercel
+.vercel/
 playwright-report
 artifacts/screenshots
 .runtime/
