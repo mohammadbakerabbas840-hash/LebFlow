@@ -137,6 +137,7 @@ RUN printf '%s\n' \
     'chmod -R ug+rwX storage bootstrap/cache database' \
     'php artisan config:clear' \
     'php artisan migrate --force' \
+    'php artisan db:seed --force' \
     'php artisan view:clear' \
     'exec supervisord -n -c /etc/supervisor/supervisord.conf' \
     > /usr/local/bin/start-lebflow \
