@@ -21,19 +21,18 @@ RUN apt-get update \
        supervisor \
        git \
        unzip \
-       libpq-dev \
+       libsqlite3-dev \
        libzip-dev \
        libicu-dev \
        libonig-dev \
+    && docker-php-ext-install -j1 \
+       pdo_sqlite \
+       sqlite3 \
+       zip \
+       intl \
+       mbstring \
+       opcache \
     && rm -rf /var/lib/apt/lists/*
-
-# Install PHP extensions
-RUN docker-php-ext-install -j1 \
-    pdo_pgsql \
-    zip \
-    intl \
-    mbstring \
-    opcache
 
 # Install Composer
 COPY --from=composer:2 \
@@ -51,13 +50,17 @@ RUN composer install \
     --no-interaction \
     --no-progress \
     && mkdir -p \
-       storage/framework/cache \
+       storage/framework/cache/data \
        storage/framework/sessions \
        storage/framework/views \
        storage/logs \
        bootstrap/cache \
+       database \
+    && touch database/database.sqlite \
     && chown -R www-data:www-data \
-       storage bootstrap/cache
+       storage bootstrap/cache database \
+    && chmod -R ug+rwX \
+       storage bootstrap/cache database
 
 # Copy compiled frontend assets
 COPY --from=frontend /build/dist/ /var/www/html/public/
@@ -95,21 +98,46 @@ RUN printf '%s\n' \
     '    location ~ \.php$ { return 404; }' \
     '}' > /etc/nginx/conf.d/default.conf
 
-# Verify Nginx configuration
 RUN nginx -t
 
 # Configure Supervisor
 RUN printf '%s\n' \
     '[supervisord]' \
     'nodaemon=true' \
+    'user=root' \
+    'logfile=/dev/null' \
+    'logfile_maxbytes=0' \
     '[program:php-fpm]' \
     'command=php-fpm -F' \
     'autorestart=true' \
+    'stdout_logfile=/dev/stdout' \
+    'stdout_logfile_maxbytes=0' \
+    'stderr_logfile=/dev/stderr' \
+    'stderr_logfile_maxbytes=0' \
     '[program:nginx]' \
     'command=nginx -g "daemon off;"' \
     'autorestart=true' \
+    'stdout_logfile=/dev/stdout' \
+    'stdout_logfile_maxbytes=0' \
+    'stderr_logfile=/dev/stderr' \
+    'stderr_logfile_maxbytes=0' \
     > /etc/supervisor/conf.d/lebflow.conf
+
+# Prepare Laravel and start Supervisor
+RUN printf '%s\n' \
+    '#!/bin/sh' \
+    'set -e' \
+    'cd /var/www/html' \
+    'mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database' \
+    'touch database/database.sqlite' \
+    'chown -R www-data:www-data storage bootstrap/cache database' \
+    'chmod -R ug+rwX storage bootstrap/cache database' \
+    'php artisan config:clear' \
+    'php artisan view:clear' \
+    'exec supervisord -n -c /etc/supervisor/supervisord.conf' \
+    > /usr/local/bin/start-lebflow \
+    && chmod +x /usr/local/bin/start-lebflow
 
 EXPOSE 8080
 
-CMD ["supervisord", "-n"]
+CMD ["/usr/local/bin/start-lebflow"]
