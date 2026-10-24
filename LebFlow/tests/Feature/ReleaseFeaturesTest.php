@@ -131,11 +131,16 @@ class ReleaseFeaturesTest extends TestCase
 
     public function test_password_recovery_is_generic_and_revokes_old_sessions(): void
     {
+        config(['app.frontend_url' => 'https://lebflow.vercel.app']);
         Notification::fake();
         $user = User::factory()->create();
         $response = $this->postJson('/api/v1/auth/forgot-password', ['email' => $user->email])->assertOk()->json();
         $this->postJson('/api/v1/auth/forgot-password', ['email' => 'nobody@example.test'])->assertOk()->assertExactJson($response);
-        Notification::assertSentTo($user, ResetPassword::class);
+        Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) use ($user): bool {
+            $this->assertSame('https://lebflow.vercel.app/#/account?reset='.urlencode($notification->token).'&email='.urlencode($user->email), $notification->toMail($user)->actionUrl);
+
+            return true;
+        });
         $session = AccountSession::create(['user_id' => $user->id, 'session_hash' => hash('sha256', 'sample'), 'agent' => 'Test browser', 'last_seen_at' => now()]);
         $token = Password::createToken($user);
         $this->postJson('/api/v1/auth/reset-password', ['email' => $user->email, 'token' => $token, 'password' => 'replacement-password-123', 'password_confirmation' => 'replacement-password-123'])->assertOk();
@@ -146,6 +151,7 @@ class ReleaseFeaturesTest extends TestCase
 
     public function test_email_reminders_require_verified_opt_in_and_are_deduplicated(): void
     {
+        config(['app.frontend_url' => 'https://lebflow.vercel.app']);
         Notification::fake();
         $user = User::factory()->unverified()->create();
         $this->actingAs($user);
@@ -156,6 +162,7 @@ class ReleaseFeaturesTest extends TestCase
         $this->artisan('reminders:send')->assertSuccessful();
         $this->artisan('reminders:send')->assertSuccessful();
         Notification::assertSentToTimes($user, CaseDigest::class, 1);
+        $this->assertSame('https://lebflow.vercel.app/#/reminders', (new CaseDigest)->toMail($user)->actionUrl);
         $this->patchJson('/api/v1/me', ['email' => 'changed@example.test'])->assertOk();
         $this->assertNull($user->fresh()->email_verified_at);
         $this->assertFalse($user->fresh()->email_reminders);
@@ -173,16 +180,20 @@ class ReleaseFeaturesTest extends TestCase
 
     public function test_email_verification_requires_a_valid_signed_link(): void
     {
+        config(['app.frontend_url' => 'https://lebflow.vercel.app']);
         Notification::fake();
         $user = User::factory()->unverified()->create();
         $this->actingAs($user)->postJson('/api/v1/security/verification')->assertOk();
         Notification::assertSentTo($user, VerifyEmail::class);
         $parameters = ['id' => $user->id, 'hash' => sha1($user->email)];
-        $link = URL::temporarySignedRoute('verification.verify', now()->addMinutes(10), $parameters);
+        $publicLink = (new VerifyEmail)->toMail($user)->actionUrl;
+        $this->assertStringStartsWith('https://lebflow.vercel.app/api/v1/email/verify/', $publicLink);
+        $link = str_replace('https://lebflow.vercel.app', 'https://lebflow-backend.onrender.com', $publicLink);
         $this->get($link.'&changed=1')->assertForbidden();
-        $this->get(URL::temporarySignedRoute('verification.verify', now()->subMinute(), $parameters))->assertForbidden();
+        $this->get(URL::temporarySignedRoute('verification.verify', now()->subMinute(), $parameters, absolute: false))->assertForbidden();
+        $this->actingAs(User::factory()->unverified()->create())->get($link)->assertForbidden();
         $this->assertFalse($user->fresh()->hasVerifiedEmail());
-        $this->get($link)->assertRedirect('/#/account');
+        $this->actingAs($user)->get($link)->assertRedirect('https://lebflow.vercel.app/#/account');
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
     }
 

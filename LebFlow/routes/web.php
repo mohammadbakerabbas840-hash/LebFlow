@@ -21,7 +21,7 @@ Route::prefix('api/v1/auth')->group(function (): void {
         ->name('api.auth.logout');
 });
 
-Route::get('api/v1/email/verify/{id}/{hash}', [AccountSecurityController::class, 'verifyEmail'])->middleware(['auth', 'signed', 'throttle:6,1'])->name('verification.verify');
+Route::get('api/v1/email/verify/{id}/{hash}', [AccountSecurityController::class, 'verifyEmail'])->middleware(['auth', 'signed:relative', 'throttle:6,1'])->name('verification.verify');
 
 Route::get('/{any?}', function () {
     abort_unless(is_file(public_path('index.html')), 503, 'Build the frontend with npm run build:laravel.');

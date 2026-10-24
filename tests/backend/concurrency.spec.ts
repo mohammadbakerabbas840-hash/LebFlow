@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test('concurrent requests preserve case uniqueness and account isolation', async ({ playwright }) => {
+test('concurrent requests preserve case uniqueness and account isolation', async ({ playwright, baseURL }) => {
   const contexts = [];
   const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jZtQAAAAASUVORK5CYII=', 'base64');
   try {
     for (let account = 0; account < 3; account++) {
-      const context = await playwright.request.newContext({ baseURL: 'http://127.0.0.1:8010', extraHTTPHeaders: { Origin: 'http://127.0.0.1:8010', Accept: 'application/json' } });
+      const context = await playwright.request.newContext({ baseURL, extraHTTPHeaders: { Origin: new URL(baseURL!).origin, Accept: 'application/json' } });
       contexts.push(context);
       await context.get('/sanctum/csrf-cookie');
       const csrf = decodeURIComponent((await context.storageState()).cookies.find(c => c.name === 'XSRF-TOKEN')!.value);

@@ -28,6 +28,6 @@ jobs:
       - run: php artisan test --compact
         working-directory: LebFlow
       - run: npx playwright install --with-deps chrome
-      - run: npm run build && npm run test:vercel
+      - run: npm run test:vercel
       - run: npx playwright test
       - run: npx playwright test --config playwright.backend.config.ts

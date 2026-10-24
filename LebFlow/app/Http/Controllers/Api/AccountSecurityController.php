@@ -58,7 +58,7 @@ class AccountSecurityController extends Controller
     {
         $request->fulfill();
 
-        return redirect('/#/account');
+        return redirect(rtrim(config('app.frontend_url'), '/').'/#/account');
     }
 
     public function settings(Request $request): JsonResponse

@@ -14,6 +14,9 @@ RUN npm run build:api
 # Stage 2: Laravel + Nginx
 FROM php:8.4-fpm-bookworm
 
+# Public frontend origin; Render environment settings can override this value.
+ENV FRONTEND_URL=https://lebflow.vercel.app
+
 # Install system dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

@@ -12,16 +12,22 @@ The React demonstration includes multilingual service guides, preparation checkl
 
 ### Vercel
 
-Import this GitHub repository into Vercel using the repository root (`./`), the **Vite** preset and a free **Hobby** account for the personal portfolio demo. `vercel.json` configures `npm ci`, `npm run build`, the `dist` output directory and SPA routing. No environment variables are needed for the demo. Do not select the nested Laravel folder or use `build:api` for this deployment.
+Vercel is configured to run the **connected frontend** at `https://lebflow.vercel.app`. Import this repository using the repository root (`./`), the **Vite** preset and a free **Hobby** account for personal use. `vercel.json` configures `npm ci`, `npm run build:api`, the `dist` output directory and SPA routing. Remove any dashboard overrides for a Next.js build or a different root directory.
 
-The CLI upload allowlist in `.vercelignore` includes only the React source and build configuration. Backend files, local uploads and environment files are excluded. After connecting the GitHub repository in Vercel, pushes to `main` deploy automatically. Test the root-URL build locally with:
+The `/api/*` and `/sanctum/*` routes proxy to `https://lebflow-backend.onrender.com` before the SPA fallback. The browser sends requests to its own Vercel origin, so Laravel sessions and CSRF cookies do not depend on cross-site cookies. API and session responses must not be cached. No backend keys belong in Vercel or the frontend bundle.
+
+`Dockerfile.render` defaults `FRONTEND_URL` to `https://lebflow.vercel.app`. Laravel adds this exact host to Sanctum's allowed origins and uses it for password-reset and signed verification links. In Render, keep `APP_URL=https://lebflow-backend.onrender.com`, `APP_ENV=production`, `APP_DEBUG=false`, `SESSION_SECURE_COOKIE=true`, `SESSION_SAME_SITE=lax`, and `SESSION_DOMAIN=null` (host-only cookies). Preserve the existing `APP_KEY`. If changing domains, update both the rewrite destinations and `FRONTEND_URL`; arbitrary Vercel preview domains are deliberately not trusted.
+
+The current Render SQLite database and uploaded files are disposable unless backed by persistent storage. Configure persistent database/file storage before accepting real user data. The Render image does not yet run the queue worker, scheduler or document scanners; AI and email also need their server-side provider configuration.
+
+The CLI upload allowlist in `.vercelignore` includes only the React source and build configuration. Backend files, local uploads and environment files are excluded. Pushes to `main` should deploy on both providers when their Git integrations are connected. Test the production frontend through a local reverse proxy and isolated Laravel test database with:
 
 ```sh
-npm run build
+npm run build:api
 npm run test:vercel
 ```
 
-For deployment from this checkout, sign in using `npx vercel login`, then run `npx vercel --prod`. Keep the Vercel project on the Hobby plan to avoid a paid subscription. The public Vercel URL is assigned after account sign-in and deployment.
+For deployment from this checkout, sign in using `npx vercel login`, link the existing `lebflow` project and run `npx vercel --prod`. In the dashboard, deploy the latest `main` commit, not an older deployment. After deployment, `/api/v1/services` must return JSON and `/sanctum/csrf-cookie` must return 204 on the Vercel domain. Then verify registration, reload, case creation and logout in the browser.
 
 ### GitHub Pages
 

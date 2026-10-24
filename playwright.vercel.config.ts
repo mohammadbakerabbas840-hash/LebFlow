@@ -1,14 +1,29 @@
 import { defineConfig } from '@playwright/test';
-import pagesConfig from './playwright.pages.config';
+import backendConfig from './playwright.backend.config';
 
 export default defineConfig({
-  ...pagesConfig,
+  ...backendConfig,
+  testDir: './tests',
+  testMatch: ['backend/**/*.spec.ts', 'vercel/**/*.spec.ts'],
   outputDir: './test-results-vercel',
-  use: { ...pagesConfig.use, baseURL: 'http://127.0.0.1:4174/' },
-  webServer: {
-    command:
-      'node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 4174 --strictPort --configLoader native',
-    url: 'http://127.0.0.1:4174/',
-    reuseExistingServer: !process.env.CI,
+  use: {
+    ...backendConfig.use,
+    baseURL: 'http://localhost:4174',
+    extraHTTPHeaders: { Origin: 'http://localhost:4174', Accept: 'application/json' },
   },
+  webServer: [
+    {
+      command: 'node scripts/serve-test-backend.cjs',
+      env: { TEST_FRONTEND_URL: 'http://localhost:4174' },
+      url: 'http://127.0.0.1:8010/up',
+      timeout: 120000,
+      reuseExistingServer: false,
+      stderr: 'ignore',
+    },
+    {
+      command: 'node scripts/serve-test-vercel.cjs',
+      url: 'http://localhost:4174/',
+      reuseExistingServer: false,
+    },
+  ],
 });

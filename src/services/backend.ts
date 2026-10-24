@@ -19,7 +19,8 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}): Pr
       headers: { Accept: 'application/json' },
     })
       .then((r) => {
-        if (!r.ok) throw new ApiError(r.status, 'Unable to initialize secure session.');
+        if (r.status !== 204)
+          throw new ApiError(r.ok ? 502 : r.status, 'Unable to initialize secure session.');
       })
       .finally(() => {
         csrf = null;
@@ -36,7 +37,14 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}): Pr
     ?.slice(11);
   if (unsafe && token) headers.set('X-XSRF-TOKEN', decodeURIComponent(token));
   const response = await fetch(`/api/v1/${path}`, { ...options, headers, credentials: 'include' });
-  const data = await response.json().catch(() => ({}));
+  if (!response.headers.get('content-type')?.includes('application/json'))
+    throw new ApiError(
+      response.ok ? 502 : response.status,
+      'The server is unavailable. Please try again.',
+    );
+  const data = await response.json().catch(() => {
+    throw new ApiError(502, 'The server returned an invalid response. Please try again.');
+  });
   if (!response.ok)
     throw new ApiError(response.status, data.message ?? 'Request failed.', data.errors ?? {});
   return data.data ?? data;
