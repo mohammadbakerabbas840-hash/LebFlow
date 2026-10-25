@@ -22,6 +22,7 @@ RUN apt-get update \
        git \
        unzip \
        libsqlite3-dev \
+       libpq-dev \
        libzip-dev \
        libicu-dev \
        libonig-dev \
@@ -30,12 +31,13 @@ RUN apt-get update \
 # Install PHP extensions
 RUN docker-php-ext-install -j1 \
     pdo_sqlite \
+    pdo_pgsql \
     zip \
     intl \
     mbstring
 
-# Verify SQLite support
-RUN php -r "if (!extension_loaded('pdo_sqlite')) exit(1);"
+# Verify SQLite and PostgreSQL support
+RUN php -r "if (!extension_loaded('pdo_sqlite') || !extension_loaded('pdo_pgsql')) exit(1);"
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -142,9 +144,6 @@ RUN printf '%s\n' \
     'exec supervisord -n -c /etc/supervisor/supervisord.conf' \
     > /usr/local/bin/start-lebflow \
     && chmod +x /usr/local/bin/start-lebflow
-
-# Public frontend origin; Render environment settings can override this value.
-ENV FRONTEND_URL=https://lebflow-react.vercel.app
 
 EXPOSE 8080
 
