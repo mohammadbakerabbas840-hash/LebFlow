@@ -37,6 +37,46 @@ const messages = {
     'تعذّر إتمام الطلب. راجع البيانات وحاول مجدداً.',
     'La demande a échoué. Vérifiez vos informations et réessayez.',
   ),
+  invalidCredentials: L(
+    'The email or password is incorrect. Check both or reset your password.',
+    'البريد الإلكتروني أو كلمة المرور غير صحيحة. تحقّق منهما أو أعد تعيين كلمة المرور.',
+    'L’adresse e-mail ou le mot de passe est incorrect. Vérifiez-les ou réinitialisez votre mot de passe.',
+  ),
+  invalidMfa: L(
+    'The authentication code is invalid or expired. Enter a new code and try again.',
+    'رمز المصادقة غير صحيح أو انتهت صلاحيته. أدخل رمزًا جديدًا وحاول مجددًا.',
+    'Le code d’authentification est incorrect ou a expiré. Saisissez un nouveau code et réessayez.',
+  ),
+  sessionExpired: L(
+    'Your session has expired. Reload this page and try again.',
+    'انتهت صلاحية جلستك. أعد تحميل الصفحة وحاول مجددًا.',
+    'Votre session a expiré. Rechargez la page et réessayez.',
+  ),
+  sessionChanged: L(
+    'Your session changed. Reload this page to check which account is signed in.',
+    'تغيّرت جلستك. أعد تحميل الصفحة للتحقّق من الحساب المسجّل دخوله.',
+    'Votre session a changé. Rechargez la page pour vérifier quel compte est connecté.',
+  ),
+  tooManyAttempts: L(
+    'Too many attempts. Please wait a minute before trying again.',
+    'تجاوزت عدد المحاولات المسموح به. انتظر دقيقة قبل المحاولة مجددًا.',
+    'Trop de tentatives. Veuillez patienter une minute avant de réessayer.',
+  ),
+  serverUnavailable: L(
+    'The server is temporarily unavailable. Please try again shortly.',
+    'الخادم غير متاح مؤقتًا. يُرجى المحاولة مجددًا بعد قليل.',
+    'Le serveur est temporairement indisponible. Veuillez réessayer dans quelques instants.',
+  ),
+  connectionError: L(
+    'Unable to reach the server. Check your connection and try again.',
+    'تعذّر الاتصال بالخادم. تحقّق من اتصالك بالإنترنت وحاول مجددًا.',
+    'Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.',
+  ),
+  emailTaken: L(
+    'This email is already registered. Sign in or reset your password.',
+    'هذا البريد الإلكتروني مسجّل مسبقًا. سجّل الدخول أو أعد تعيين كلمة المرور.',
+    'Cette adresse e-mail est déjà enregistrée. Connectez-vous ou réinitialisez votre mot de passe.',
+  ),
   saved: L('Saved to your account', 'تم الحفظ في حسابك', 'Enregistré dans votre compte'),
   reminders: L(
     'These preferences control in-app reminders. You can enable email reminders separately in Account security after verifying your email.',

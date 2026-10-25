@@ -63,6 +63,13 @@ test('an HTML fallback or malformed API response shows a recoverable error', asy
 
 test('a broken CSRF rewrite does not send login credentials', async ({ page }) => {
   let loginRequests = 0;
+  const initialResponses = Promise.all(
+    ['me', 'services', 'cases'].map((path) =>
+      page
+        .waitForResponse((response) => response.url().endsWith(`/api/v1/${path}`))
+        .then((response) => response.finished()),
+    ),
+  );
   page.on('request', (request) => {
     if (request.url().endsWith('/auth/login')) loginRequests++;
   });
@@ -72,7 +79,8 @@ test('a broken CSRF rewrite does not send login credentials', async ({ page }) =
   await page.goto('/#/account');
   await page.locator('.login-form input[name=email]').fill('synthetic@example.test');
   await page.locator('.login-form input[name=password]').fill('synthetic-password-123');
-  // The initial stateful API response may already have issued a CSRF cookie.
+  // Finish initial stateful responses before clearing their cookies, so none arrive late.
+  await initialResponses;
   await page.context().clearCookies();
   await page.locator('form').getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(page.locator('.backend-account').getByRole('alert')).toBeVisible();

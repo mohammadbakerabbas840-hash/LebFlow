@@ -3,7 +3,7 @@ import { Check, FileCheck2, LogOut, ShieldCheck, Upload, UserRound, X } from 'lu
 import { useI18n, localeTags, type MessageKey } from '../../i18n';
 import { beirutNow } from '../cases/caseStorage';
 import { registrationText, useBackendText } from '../../i18n/backend';
-import { ApiError } from '../../services/backend';
+import { authErrorMessage } from './authErrors';
 import {
   validateIdentityFile,
   validateRegistration,
@@ -225,11 +225,7 @@ export function Registration({
           try {
             await onRegister(fields, files);
           } catch (error) {
-            setServerError(
-              error instanceof ApiError
-                ? (Object.values(error.errors).flat()[0] ?? b('error'))
-                : b('error'),
-            );
+            setServerError(authErrorMessage(error, b, 'register'));
             return;
           } finally {
             setSubmitting(false);

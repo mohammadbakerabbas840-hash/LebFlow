@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { authErrorMessage } from './authErrors';
 import { apiRequest, ApiError, type ServerUser } from '../../services/backend';
 import { useAuth } from './AuthProvider';
 import { Registration } from './Registration';
@@ -96,8 +97,8 @@ export function BackendAccount() {
                   );
                   if ('mfaRequired' in result) setMfa(true);
                   else acceptUser(result);
-                } catch {
-                  setError(b('error'));
+                } catch (error) {
+                  setError(authErrorMessage(error, b, mfa ? 'mfa' : 'login'));
                 } finally {
                   setBusy(false);
                 }
