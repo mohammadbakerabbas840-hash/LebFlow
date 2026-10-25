@@ -9,6 +9,19 @@
 **Status:** Deployed personal portfolio project under continued testing. Not an official government service or a production-certified identity-document platform.
 
 **Independent preparation platform:** LebFlow does not issue documents, certify identity, or book official government appointments. Appointment slots are demonstrations; case progress is self-reported. The connected frontend and Laravel API are deployed, while the static GitHub Pages demo remains separate. Additional production-readiness work is still required. See [verification results](docs/VERIFICATION.md), [security and deployment requirements](SECURITY.md), and the [portfolio draft](docs/SHARING.md).
+## Application Screenshots
+
+### Home Page
+![LebFlow Home Page](screenshots/MainPage.png)
+
+### Explore Services
+![LebFlow Services](screenshots/Services.png)
+
+### AI Assistant
+![LebFlow AI Assistant](screenshots/AiAssistant.png)
+
+---
+
 
 ## Live application and hosting
 
