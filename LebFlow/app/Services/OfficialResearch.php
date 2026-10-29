@@ -99,6 +99,13 @@ class OfficialResearch
                 'response_status' => $data['status'] ?? null,
                 'error_code' => data_get($data, 'error.code'),
                 'error_type' => data_get($data, 'error.type'),
+                'error_message' => mb_substr(
+                    (string) data_get($data, 'error.message', ''),
+                    0,
+                    500,
+                    'UTF-8'
+                ),
+                'error_param' => data_get($data, 'error.param'),
                 'incomplete_reason' => data_get($data, 'incomplete_details.reason'),
                 'request_id' => $response->header('x-request-id'),
             ]);
