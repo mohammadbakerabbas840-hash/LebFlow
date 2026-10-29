@@ -53,7 +53,6 @@ class OfficialResearch
             'max_tool_calls' => 5,
             'tools' => [[
                 'type' => 'web_search',
-                'filters' => ['allowed_domains' => self::DOMAINS],
             ]],
             'tool_choice' => 'required',
             'instructions' => 'You assist with Lebanese public administrative services. Answer in '.$language.'. '
